@@ -22,9 +22,9 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
     <div className="container mt-5">
       {/* Hero Section */}
       <div className="row justify-content-center text-center">
-        <div className="col-md-8">
-          <h1 data-aos="fade-up" data-aos-duration="1000">Welcome to Find My Pet!</h1>
-          <p className="mt-3" data-aos="fade-up" data-aos-duration="1500">
+        <div className="col-lg-8 col-md-10">
+          <h1 className="display-4" data-aos="fade-up" data-aos-duration="1000">Welcome to Find My Pet!</h1>
+          <p className="lead mt-3" data-aos="fade-up" data-aos-duration="1500">
             Our platform helps you register your pets, generate QR codes for their collars, and subscribe to our services to ensure your furry friends are always protected.
           </p>
         </div>
@@ -36,21 +36,21 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
           <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel" data-aos="fade-up" data-aos-duration="1000">
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <div className="carousel-caption-custom">
+                <div className="carousel-caption d-md-block">
                   <h5>Easy Pet Registration</h5>
                   <p>Register your pets with just a few clicks.</p>
                 </div>
                 <img src={Info} className="d-block w-100" alt="Pet Registration" />
               </div>
               <div className="carousel-item">
-                <div className="carousel-caption-custom">
+                <div className="carousel-caption d-md-block">
                   <h5>QR Code Generation</h5>
                   <p>Generate QR codes for quick identification.</p>
                 </div>
                 <img src="https://via.placeholder.com/1200x500?text=QR+Codes" className="d-block w-100" alt="QR Codes" />
               </div>
               <div className="carousel-item">
-                <div className="carousel-caption-custom">
+                <div className="carousel-caption d-md-block">
                   <h5>Subscription Plans</h5>
                   <p>Choose the best plan for your pet's safety.</p>
                 </div>
@@ -70,19 +70,19 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
       </div>
 
       {/* Features Section */}
-      <div className="row mt-5">
-        <div className="col-md-4 text-center" data-aos="fade-up" data-aos-duration="1000">
-          <i className="fas fa-dog fa-3x mb-3"></i>
+      <div className="row mt-5 text-center">
+        <div className="col-md-4" data-aos="fade-up" data-aos-duration="1000">
+          <i className="fas fa-dog fa-4x mb-3 text-primary"></i>
           <h3>Register Your Pets</h3>
           <p>Easy and quick registration for your pets with detailed profiles.</p>
         </div>
-        <div className="col-md-4 text-center" data-aos="fade-up" data-aos-duration="1500">
-          <i className="fas fa-qrcode fa-3x mb-3"></i>
+        <div className="col-md-4" data-aos="fade-up" data-aos-duration="1500">
+          <i className="fas fa-qrcode fa-4x mb-3 text-success"></i>
           <h3>Generate QR Codes</h3>
           <p>Generate and print QR codes for your pet's collar to help identify them quickly.</p>
         </div>
-        <div className="col-md-4 text-center" data-aos="fade-up" data-aos-duration="2000">
-          <i className="fas fa-cogs fa-3x mb-3"></i>
+        <div className="col-md-4" data-aos="fade-up" data-aos-duration="2000">
+          <i className="fas fa-cogs fa-4x mb-3 text-warning"></i>
           <h3>Subscribe to Services</h3>
           <p>Choose from various subscription plans to keep your pets safe and secure.</p>
         </div>
@@ -90,8 +90,8 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
 
       {/* How to Subscribe Section */}
       <div className="row mt-5">
-        <div className="col-md-12 text-center" data-aos="fade-up" data-aos-duration="1000">
-          <h2>How to Subscribe</h2>
+        <div className="col-md-10 mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+          <h2>3 simple steps to get going</h2>
           <p className="mt-3">
             Subscribing to our service is simple:
           </p>
@@ -99,15 +99,13 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
             <li>Sign up on our platform and create your account.</li>
             <li>Register your pets with detailed information.</li>
             <li>Choose a subscription plan that fits your needs.</li>
-            <li>Generate and print QR codes for your pet's collars.</li>
-            <li>Attach the QR codes to your pet's collar for easy identification.</li>
           </ol>
         </div>
       </div>
 
       {/* Benefits Section */}
-      <div className="row mt-5">
-        <div className="col-md-12 text-center" data-aos="fade-up" data-aos-duration="1500">
+      <div className="row mt-5 mb-5">
+        <div className="col-md-10 mx-auto text-center" data-aos="fade-up" data-aos-duration="1500">
           <h2>Benefits of Signing Up</h2>
           <p className="mt-3">
             When you sign up, you can generate a QR code for each of your pets. If your pet goes missing, anyone who finds them can scan the QR code, view your contact information, and quickly reach out to return your beloved pet safely.
