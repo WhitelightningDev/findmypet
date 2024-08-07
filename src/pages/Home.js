@@ -23,7 +23,7 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
       {/* Hero Section */}
       <div className="row justify-content-center text-center">
         <div className="col-md-8">
-          <h1 data-aos="fade-up" data-aos-duration="1000">Welcome to Find My Dog!</h1>
+          <h1 data-aos="fade-up" data-aos-duration="1000">Welcome to Find My Pet!</h1>
           <p className="mt-3" data-aos="fade-up" data-aos-duration="1500">
             Our platform helps you register your pets, generate QR codes for their collars, and subscribe to our services to ensure your furry friends are always protected.
           </p>
