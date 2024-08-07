@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/findmypet/static/css/main.8a209ae3.css",
-    "main.js": "/findmypet/static/js/main.cb49cff7.js",
-    "static/js/453.c25afe26.chunk.js": "/findmypet/static/js/453.c25afe26.chunk.js",
-    "static/media/fa-solid-900.ttf": "/findmypet/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
-    "static/media/fa-brands-400.ttf": "/findmypet/static/media/fa-brands-400.0ff70dcbf135d859ebf3.ttf",
-    "static/media/fa-solid-900.woff2": "/findmypet/static/media/fa-solid-900.93f719f4d62bfa3e748c.woff2",
-    "static/media/fa-brands-400.woff2": "/findmypet/static/media/fa-brands-400.bb8d5a145e22822103fb.woff2",
-    "static/media/fa-regular-400.ttf": "/findmypet/static/media/fa-regular-400.17a6e1aebccdbaa39e78.ttf",
-    "static/media/fa-regular-400.woff2": "/findmypet/static/media/fa-regular-400.bc3722686635b5f86132.woff2",
-    "static/media/undraw_personal_info_re_ur1n.svg": "/findmypet/static/media/undraw_personal_info_re_ur1n.6cab0cafa31af2491278ffd15f7377eb.svg",
-    "static/media/fa-v4compatibility.ttf": "/findmypet/static/media/fa-v4compatibility.0f6cb412603527bda691.ttf",
-    "static/media/fa-v4compatibility.woff2": "/findmypet/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
-    "index.html": "/findmypet/index.html",
-    "main.8a209ae3.css.map": "/findmypet/static/css/main.8a209ae3.css.map",
-    "main.cb49cff7.js.map": "/findmypet/static/js/main.cb49cff7.js.map",
-    "453.c25afe26.chunk.js.map": "/findmypet/static/js/453.c25afe26.chunk.js.map"
+    "main.css": "/WhitelightningDev/findmypet/static/css/main.e5185e7b.css",
+    "main.js": "/WhitelightningDev/findmypet/static/js/main.118032bc.js",
+    "static/js/453.c25afe26.chunk.js": "/WhitelightningDev/findmypet/static/js/453.c25afe26.chunk.js",
+    "static/media/fa-solid-900.ttf": "/WhitelightningDev/findmypet/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
+    "static/media/fa-brands-400.ttf": "/WhitelightningDev/findmypet/static/media/fa-brands-400.0ff70dcbf135d859ebf3.ttf",
+    "static/media/fa-solid-900.woff2": "/WhitelightningDev/findmypet/static/media/fa-solid-900.93f719f4d62bfa3e748c.woff2",
+    "static/media/fa-brands-400.woff2": "/WhitelightningDev/findmypet/static/media/fa-brands-400.bb8d5a145e22822103fb.woff2",
+    "static/media/fa-regular-400.ttf": "/WhitelightningDev/findmypet/static/media/fa-regular-400.17a6e1aebccdbaa39e78.ttf",
+    "static/media/fa-regular-400.woff2": "/WhitelightningDev/findmypet/static/media/fa-regular-400.bc3722686635b5f86132.woff2",
+    "static/media/undraw_personal_info_re_ur1n.svg": "/WhitelightningDev/findmypet/static/media/undraw_personal_info_re_ur1n.6cab0cafa31af2491278ffd15f7377eb.svg",
+    "static/media/fa-v4compatibility.ttf": "/WhitelightningDev/findmypet/static/media/fa-v4compatibility.0f6cb412603527bda691.ttf",
+    "static/media/fa-v4compatibility.woff2": "/WhitelightningDev/findmypet/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
+    "index.html": "/WhitelightningDev/findmypet/index.html",
+    "main.e5185e7b.css.map": "/WhitelightningDev/findmypet/static/css/main.e5185e7b.css.map",
+    "main.118032bc.js.map": "/WhitelightningDev/findmypet/static/js/main.118032bc.js.map",
+    "453.c25afe26.chunk.js.map": "/WhitelightningDev/findmypet/static/js/453.c25afe26.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8a209ae3.css",
-    "static/js/main.cb49cff7.js"
+    "static/css/main.e5185e7b.css",
+    "static/js/main.118032bc.js"
   ]
 }
