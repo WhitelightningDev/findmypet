@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/findmypet/static/css/main.8a209ae3.css",
-    "main.js": "/findmypet/static/js/main.fb250d63.js",
+    "main.js": "/findmypet/static/js/main.cb49cff7.js",
     "static/js/453.c25afe26.chunk.js": "/findmypet/static/js/453.c25afe26.chunk.js",
     "static/media/fa-solid-900.ttf": "/findmypet/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
     "static/media/fa-brands-400.ttf": "/findmypet/static/media/fa-brands-400.0ff70dcbf135d859ebf3.ttf",
@@ -14,11 +14,11 @@
     "static/media/fa-v4compatibility.woff2": "/findmypet/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
     "index.html": "/findmypet/index.html",
     "main.8a209ae3.css.map": "/findmypet/static/css/main.8a209ae3.css.map",
-    "main.fb250d63.js.map": "/findmypet/static/js/main.fb250d63.js.map",
+    "main.cb49cff7.js.map": "/findmypet/static/js/main.cb49cff7.js.map",
     "453.c25afe26.chunk.js.map": "/findmypet/static/js/453.c25afe26.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8a209ae3.css",
-    "static/js/main.fb250d63.js"
+    "static/js/main.cb49cff7.js"
   ]
 }
