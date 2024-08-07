@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.carousel-item {
+  position: relative;
+}
+
+.carousel-caption-custom {
+  position: absolute;
+  top: 10%; /* Adjust this value as needed */
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 20px;
+}
+
+
+/* Home.css */
+
+/* General styles */
+.container {
+  font-family: 'Arial', sans-serif;
+}
+
+/* Hero Section */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Carousel Section */
+.carousel-caption-custom {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.carousel-caption-custom h5 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.carousel-caption-custom p {
+  font-size: 1rem;
+}
+
+/* Features Section */
+.col-md-4 {
+  margin-bottom: 30px;
+}
+
+.col-md-4 i {
+  color: #007bff;
+}
+
+.col-md-4 h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.col-md-4 p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Call to Action */
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
