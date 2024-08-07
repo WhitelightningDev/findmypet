@@ -30,6 +30,7 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [termsAccepted, setTermsAccepted] = useState(false);
   const navigate = useNavigate();
+  const baseURL = 'https://findmypet-df0a76e6b00e.herokuapp.com/'; // Base URL of your Heroku server
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,7 +46,7 @@ const SignUp = () => {
     }
   
     try {
-      const response = await axios.post('http://localhost:3030/api/auth/register', {
+      const response = await axios.post(`${baseURL}api/auth/register`, {
         name,
         surname,
         street,
@@ -64,7 +65,6 @@ const SignUp = () => {
     }
   };
   
-
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">

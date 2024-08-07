@@ -10,7 +10,7 @@ const SubscriptionSelection = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const baseURL = 'http://localhost:3030/api/subscription'; // Update if needed
+    const baseURL = 'https://findmypet-df0a76e6b00e.herokuapp.com/api/subscription'; // Updated URL
 
     useEffect(() => {
         const fetchPlans = async () => {
@@ -147,7 +147,7 @@ const SubscriptionSelection = () => {
                     <p>No subscription plans available.</p>
                 )}
             </div>
-            <div class="container">
+            <div className="container">
                 <p>Once you have made payment you will be redirected back to the home page where you will see a button </p>
             </div>
         </div>

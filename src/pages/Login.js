@@ -13,7 +13,7 @@ const Login = ({ setIsAuthenticated }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3030/api/auth/login', { email, password });
+      const response = await axios.post('https://findmypet-df0a76e6b00e.herokuapp.com/api/auth/login', { email, password });
       const token = response.data.token;
       localStorage.setItem('token', token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;

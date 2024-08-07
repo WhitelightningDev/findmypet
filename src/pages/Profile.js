@@ -22,7 +22,7 @@ const Profile = () => {
   const [error, setError] = useState('');
   const [editMode, setEditMode] = useState(false);
   const navigate = useNavigate();
-  const baseURL = 'http://localhost:3030/'; // Base URL of your server
+  const baseURL = 'https://findmypet-df0a76e6b00e.herokuapp.com/'; // Base URL of your Heroku server
 
   useEffect(() => {
     const fetchUserData = async () => {

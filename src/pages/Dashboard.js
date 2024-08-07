@@ -12,7 +12,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const baseURL = 'http://localhost:3030/'; // Base URL of your server
+  const baseURL = 'https://findmypet-df0a76e6b00e.herokuapp.com/'; // Updated base URL
 
   useEffect(() => {
     const fetchData = async () => {
@@ -114,7 +114,6 @@ const Dashboard = () => {
 
       <div className="row">
         <div className="col-lg-4 col-md-6 mb-4 d-flex">
-          {/* Ensure uniform card width */}
           <div className="card border-primary shadow-sm flex-fill hover-effect" style={{ minHeight: '200px' }}>
             <div className="card-body text-center">
               <h5 className="card-title">

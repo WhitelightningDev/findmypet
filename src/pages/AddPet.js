@@ -11,7 +11,7 @@ const AddPet = () => {
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const baseURL = 'http://localhost:3030/'; // Base URL of your server
+  const baseURL = 'https://findmypet-df0a76e6b00e.herokuapp.com/'; // Updated base URL
 
   useEffect(() => {
     const fetchPets = async () => {
