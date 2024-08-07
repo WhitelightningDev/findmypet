@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/WhitelightningDev/findmypet/static/css/main.e5185e7b.css",
-    "main.js": "/WhitelightningDev/findmypet/static/js/main.118032bc.js",
+    "main.js": "/WhitelightningDev/findmypet/static/js/main.aaff23c2.js",
     "static/js/453.c25afe26.chunk.js": "/WhitelightningDev/findmypet/static/js/453.c25afe26.chunk.js",
     "static/media/fa-solid-900.ttf": "/WhitelightningDev/findmypet/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
     "static/media/fa-brands-400.ttf": "/WhitelightningDev/findmypet/static/media/fa-brands-400.0ff70dcbf135d859ebf3.ttf",
@@ -14,11 +14,11 @@
     "static/media/fa-v4compatibility.woff2": "/WhitelightningDev/findmypet/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
     "index.html": "/WhitelightningDev/findmypet/index.html",
     "main.e5185e7b.css.map": "/WhitelightningDev/findmypet/static/css/main.e5185e7b.css.map",
-    "main.118032bc.js.map": "/WhitelightningDev/findmypet/static/js/main.118032bc.js.map",
+    "main.aaff23c2.js.map": "/WhitelightningDev/findmypet/static/js/main.aaff23c2.js.map",
     "453.c25afe26.chunk.js.map": "/WhitelightningDev/findmypet/static/js/453.c25afe26.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e5185e7b.css",
-    "static/js/main.118032bc.js"
+    "static/js/main.aaff23c2.js"
   ]
 }
