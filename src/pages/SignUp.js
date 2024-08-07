@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaUser, FaHome, FaEnvelope, FaLock, FaCheckCircle } from 'react-icons/fa';
+import backgroundImage from '../assets/undraw_sign_up_n6im.svg'; // Import your background image
 
 const provinces = [
   'Eastern Cape',
@@ -66,14 +68,30 @@ const SignUp = () => {
   };
   
   return (
-    <div className="container mt-5">
-      <div className="row justify-content-center">
+    <div className="container-fluid" style={{ position: 'relative', height: '100vh', padding: 0 }}>
+      {/* Background Image */}
+      <img 
+        src={backgroundImage} 
+        alt="Background" 
+        style={{ 
+          position: 'absolute',
+          bottom: 0, 
+          right: 0, 
+          width: '30%', 
+          height: 'auto', 
+          zIndex: -1 
+        }} 
+      />
+      
+      <div className="row justify-content-center align-items-center" style={{ height: '100%' }}>
         <div className="col-md-8 col-lg-6">
-          <div className="card p-4 shadow-sm">
+          <div className="card p-4 shadow-sm border-primary mb-5" style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)' }}>
             <h2 className="text-center mb-4">Sign Up</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
-                <label htmlFor="name" className="form-label">Name</label>
+                <label htmlFor="name" className="form-label">
+                  <FaUser /> Name
+                </label>
                 <input
                   type="text"
                   className="form-control"
@@ -84,7 +102,9 @@ const SignUp = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="surname" className="form-label">Surname</label>
+                <label htmlFor="surname" className="form-label">
+                  <FaUser /> Surname
+                </label>
                 <input
                   type="text"
                   className="form-control"
@@ -95,7 +115,9 @@ const SignUp = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="street" className="form-label">Street Name</label>
+                <label htmlFor="street" className="form-label">
+                  <FaHome /> Street Name
+                </label>
                 <input
                   type="text"
                   className="form-control"
@@ -106,7 +128,9 @@ const SignUp = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="number" className="form-label">Street Number</label>
+                <label htmlFor="number" className="form-label">
+                  <FaHome /> Street Number
+                </label>
                 <input
                   type="text"
                   className="form-control"
@@ -117,7 +141,9 @@ const SignUp = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="suburb" className="form-label">Suburb</label>
+                <label htmlFor="suburb" className="form-label">
+                  <FaHome /> Suburb
+                </label>
                 <input
                   type="text"
                   className="form-control"
@@ -128,7 +154,9 @@ const SignUp = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="country" className="form-label">Country</label>
+                <label htmlFor="country" className="form-label">
+                  <FaHome /> Country
+                </label>
                 <input
                   type="text"
                   className="form-control"
@@ -139,7 +167,9 @@ const SignUp = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="province" className="form-label">Province</label>
+                <label htmlFor="province" className="form-label">
+                  <FaHome /> Province
+                </label>
                 <select
                   className="form-select"
                   id="province"
@@ -154,7 +184,9 @@ const SignUp = () => {
                 </select>
               </div>
               <div className="mb-3">
-                <label htmlFor="email" className="form-label">Email</label>
+                <label htmlFor="email" className="form-label">
+                  <FaEnvelope /> Email
+                </label>
                 <input
                   type="email"
                   className="form-control"
@@ -165,7 +197,9 @@ const SignUp = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="password" className="form-label">Password</label>
+                <label htmlFor="password" className="form-label">
+                  <FaLock /> Password
+                </label>
                 <input
                   type="password"
                   className="form-control"
@@ -176,7 +210,9 @@ const SignUp = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
+                <label htmlFor="confirmPassword" className="form-label">
+                  <FaLock /> Confirm Password
+                </label>
                 <input
                   type="password"
                   className="form-control"
@@ -195,7 +231,9 @@ const SignUp = () => {
                   onChange={(e) => setTermsAccepted(e.target.checked)}
                   required
                 />
-                <label className="form-check-label" htmlFor="terms">I agree to the <a href="/terms-of-use">terms of use</a></label>
+                <label className="form-check-label" htmlFor="terms">
+                  <FaCheckCircle /> I agree to the <a href="/terms-of-use">terms of use</a>
+                </label>
               </div>
               <button type="submit" className="btn btn-primary w-100">Sign Up</button>
             </form>

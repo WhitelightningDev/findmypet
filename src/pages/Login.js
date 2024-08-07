@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import backgroundImage from '../assets/undraw_my_password_re_ydq7.svg'; // Import your background image
 
 const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
@@ -25,8 +26,22 @@ const Login = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <div className="container mt-5">
-      <div className="row justify-content-center">
+    <div className="container-fluid" style={{ position: 'relative', height: '100vh', padding: 0 }}>
+      {/* Background Image */}
+      <img 
+        src={backgroundImage} 
+        alt="Background" 
+        style={{ 
+          position: 'absolute',
+          bottom: 281, 
+          right: 215, 
+          width: '30%', 
+          height: 'auto', 
+          zIndex: -1 
+        }} 
+      />
+      
+      <div className="row justify-content-center align-items-center" style={{ height: '100%' }}>
         <div className="col-md-6 col-lg-5">
           <div className="card p-4 shadow-sm">
             <h2 className="text-center mb-4">Login</h2>
