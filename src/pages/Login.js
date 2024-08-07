@@ -26,23 +26,16 @@ const Login = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <div className="container-fluid" style={{ position: 'relative', height: '100vh', padding: 0 }}>
+    <div className="container-fluid d-flex flex-column justify-content-center align-items-center" style={{ height: '100vh', padding: 0, position: 'relative' }}>
       {/* Background Image */}
       <img 
         src={backgroundImage} 
         alt="Background" 
-        style={{ 
-          position: 'absolute',
-          bottom: 281, 
-          right: 215, 
-          width: '30%', 
-          height: 'auto', 
-          zIndex: -1 
-        }} 
+        className="background-image"
       />
       
-      <div className="row justify-content-center align-items-center" style={{ height: '100%' }}>
-        <div className="col-md-6 col-lg-5">
+      <div className="row justify-content-center align-items-center w-100" style={{ height: '100%' }}>
+        <div className="col-10 col-sm-8 col-md-6 col-lg-5">
           <div className="card p-4 shadow-sm">
             <h2 className="text-center mb-4">Login</h2>
             <form onSubmit={handleSubmit}>
@@ -79,6 +72,33 @@ const Login = ({ setIsAuthenticated }) => {
           </div>
         </div>
       </div>
+      <style jsx>{`
+        .background-image {
+          position: absolute;
+          bottom: 10%;
+          right: 10%;
+          width: 20%;
+          max-width: 150px;
+          height: auto;
+          z-index: -1;
+        }
+        
+        @media (max-width: 768px) {
+          .background-image {
+            width: 40%;
+            bottom: 5%;
+            right: 5%;
+          }
+        }
+        
+        @media (max-width: 576px) {
+          .background-image {
+            width: 50%;
+            bottom: 5%;
+            right: 5%;
+          }
+        }
+      `}</style>
     </div>
   );
 };

@@ -36,17 +36,17 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (password !== confirmPassword) {
       toast.error('Passwords do not match');
       return;
     }
-  
+
     if (!termsAccepted) {
       toast.error('You must accept the terms of use');
       return;
     }
-  
+
     try {
       const response = await axios.post(`${baseURL}api/auth/register`, {
         name,
@@ -59,33 +59,26 @@ const SignUp = () => {
         email,
         password
       });
-  
+
       toast.success('Registration successful!');
       navigate('/login');
     } catch (error) {
       toast.error('Registration failed: ' + (error.response?.data?.error || 'An error occurred'));
     }
   };
-  
+
   return (
     <div className="container-fluid" style={{ position: 'relative', height: '100vh', padding: 0 }}>
       {/* Background Image */}
       <img 
         src={backgroundImage} 
         alt="Background" 
-        style={{ 
-          position: 'absolute',
-          bottom: 0, 
-          right: 0, 
-          width: '30%', 
-          height: 'auto', 
-          zIndex: -1 
-        }} 
+        className="background-image"
       />
-      
+
       <div className="row justify-content-center align-items-center" style={{ height: '100%' }}>
-        <div className="col-md-8 col-lg-6">
-          <div className="card p-4 shadow-sm border-primary mb-5" style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)' }}>
+        <div className="col-10 col-sm-8 col-md-6 col-lg-5">
+          <div className="card p-4 shadow-sm">
             <h2 className="text-center mb-4">Sign Up</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
@@ -245,6 +238,49 @@ const SignUp = () => {
         </div>
       </div>
       <ToastContainer />
+      <style jsx>{`
+        .background-image {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 50%;
+          height: auto;
+          z-index: -1;
+        }
+
+        @media (max-width: 1200px) {
+          .background-image {
+            width: 50%;
+          }
+        }
+
+        @media (max-width: 992px) {
+          .background-image {
+            width: 50%;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .background-image {
+            width: 50%;
+            bottom: 10px;
+          }
+        }
+
+        @media (max-width: 576px) {
+          .background-image {
+            width: 30%;
+            bottom: 10px;
+          }
+        }
+
+        @media (max-width: 400px) {
+          .background-image {
+            width: 30%;
+            bottom: 10px;
+          }
+        }
+      `}</style>
     </div>
   );
 };
