@@ -55,12 +55,12 @@ function App() {
         <NavBar isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
         <Routes>
           <Route path="/" element={<Home isAuthenticated={isAuthenticated} isSignedUp={isSignedUp} />} />
-          <Route path="/signup" element={isAuthenticated ? <Navigate to="/" /> : <SignUp />} />
-          <Route path="/login" element={isAuthenticated ? <Navigate to="/" /> : <Login setIsAuthenticated={setIsAuthenticated} />} />
-          <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
-          <Route path="/add-pet" element={isAuthenticated ? <AddPet /> : <Navigate to="/login" />} />
-          <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
-          <Route path="/subscribe" element={isAuthenticated ? <SubscriptionSelection /> : <Navigate to="/login" />} />
+          <Route path="/signup" element={!isAuthenticated ? <SignUp /> : <Navigate to="/" />} />
+          <Route path="/login" element={!isAuthenticated ? <Login setIsAuthenticated={setIsAuthenticated} /> : <Navigate to="/" />} />
+          <Route path="/dashboard" element={isAuthenticated ? (isSignedUp ? <Dashboard /> : <Navigate to="/" />) : <Navigate to="/" />} />
+          <Route path="/add-pet" element={isAuthenticated ? (isSignedUp ? <AddPet /> : <Navigate to="/" />) : <Navigate to="/" />} />
+          <Route path="/profile" element={isAuthenticated ? (isSignedUp ? <Profile /> : <Navigate to="/" />) : <Navigate to="/" />} />
+          <Route path="/subscribe" element={isAuthenticated ? (isSignedUp ? <SubscriptionSelection /> : <Navigate to="/" />) : <Navigate to="/" />} />
           <Route path="/logout" element={<Navigate to="/" />} />
         </Routes>
       </div>
