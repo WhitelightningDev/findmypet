@@ -15,7 +15,6 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isSignedUp, setIsSignedUp] = useState(false);
   const [loading, setLoading] = useState(true);
-  const baseURL = 'http://localhost:3030/';
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -23,11 +22,9 @@ function App() {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       setIsAuthenticated(true);
 
-      axios.get(`${baseURL}api/user/profile`)
+      axios.get('/api/user/profile')
         .then(response => {
-          if (response.data) {
-            setIsSignedUp(true);
-          }
+          setIsSignedUp(response.data ? true : false);
         })
         .catch(error => {
           console.error('Failed to fetch user profile', error);
@@ -39,7 +36,7 @@ function App() {
     } else {
       setLoading(false);
     }
-  }, [baseURL]);
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
