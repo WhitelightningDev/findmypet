@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/findmypet/static/css/main.178fe843.css",
-    "main.js": "/findmypet/static/js/main.835c647a.js",
-    "static/js/453.c25afe26.chunk.js": "/findmypet/static/js/453.c25afe26.chunk.js",
-    "static/media/fa-solid-900.ttf": "/findmypet/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
-    "static/media/fa-brands-400.ttf": "/findmypet/static/media/fa-brands-400.0ff70dcbf135d859ebf3.ttf",
-    "static/media/fa-solid-900.woff2": "/findmypet/static/media/fa-solid-900.93f719f4d62bfa3e748c.woff2",
-    "static/media/fa-brands-400.woff2": "/findmypet/static/media/fa-brands-400.bb8d5a145e22822103fb.woff2",
-    "static/media/fa-regular-400.ttf": "/findmypet/static/media/fa-regular-400.17a6e1aebccdbaa39e78.ttf",
-    "static/media/fa-regular-400.woff2": "/findmypet/static/media/fa-regular-400.bc3722686635b5f86132.woff2",
-    "static/media/undraw_personal_info_re_ur1n.svg": "/findmypet/static/media/undraw_personal_info_re_ur1n.6cab0cafa31af2491278ffd15f7377eb.svg",
-    "static/media/fa-v4compatibility.ttf": "/findmypet/static/media/fa-v4compatibility.0f6cb412603527bda691.ttf",
-    "static/media/undraw_my_password_re_ydq7.svg": "/findmypet/static/media/undraw_my_password_re_ydq7.c13195489e8e86e0f22ee2b234d3261a.svg",
-    "static/media/undraw_sign_up_n6im.svg": "/findmypet/static/media/undraw_sign_up_n6im.36ff1150a5989e30c5bb0d00ce2b9fec.svg",
-    "static/media/fa-v4compatibility.woff2": "/findmypet/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
-    "index.html": "/findmypet/index.html",
-    "main.178fe843.css.map": "/findmypet/static/css/main.178fe843.css.map",
-    "main.835c647a.js.map": "/findmypet/static/js/main.835c647a.js.map",
-    "453.c25afe26.chunk.js.map": "/findmypet/static/js/453.c25afe26.chunk.js.map"
+    "main.css": "/static/css/main.28006b05.css",
+    "main.js": "/static/js/main.00fdbf6a.js",
+    "static/js/453.c25afe26.chunk.js": "/static/js/453.c25afe26.chunk.js",
+    "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
+    "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.0ff70dcbf135d859ebf3.ttf",
+    "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.93f719f4d62bfa3e748c.woff2",
+    "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.bb8d5a145e22822103fb.woff2",
+    "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.17a6e1aebccdbaa39e78.ttf",
+    "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.bc3722686635b5f86132.woff2",
+    "static/media/undraw_personal_info_re_ur1n.svg": "/static/media/undraw_personal_info_re_ur1n.6cab0cafa31af2491278ffd15f7377eb.svg",
+    "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.0f6cb412603527bda691.ttf",
+    "static/media/undraw_my_password_re_ydq7.svg": "/static/media/undraw_my_password_re_ydq7.c13195489e8e86e0f22ee2b234d3261a.svg",
+    "static/media/undraw_sign_up_n6im.svg": "/static/media/undraw_sign_up_n6im.36ff1150a5989e30c5bb0d00ce2b9fec.svg",
+    "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
+    "index.html": "/index.html",
+    "main.28006b05.css.map": "/static/css/main.28006b05.css.map",
+    "main.00fdbf6a.js.map": "/static/js/main.00fdbf6a.js.map",
+    "453.c25afe26.chunk.js.map": "/static/js/453.c25afe26.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.178fe843.css",
-    "static/js/main.835c647a.js"
+    "static/css/main.28006b05.css",
+    "static/js/main.00fdbf6a.js"
   ]
 }
