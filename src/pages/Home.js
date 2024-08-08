@@ -7,12 +7,13 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isAuthenticated) {
-      // If user is authenticated, redirect based on sign-up status
-      if (isSignedUp) {
-        navigate('/home');
-      }
+    // Redirect based on authentication and sign-up status
+    if (isAuthenticated && isSignedUp) {
+      navigate('/home'); // Redirect to home if authenticated and signed up
+    } else if (isAuthenticated && !isSignedUp) {
+      navigate('/signup'); // Redirect to signup if authenticated but not signed up
     }
+    // No redirection for non-authenticated users
   }, [isAuthenticated, isSignedUp, navigate]);
 
   return (
@@ -33,25 +34,25 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
           <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-inner">
               <div className="carousel-item active">
+                <img src={Info} className="d-block w-100" alt="Pet Registration" />
                 <div className="carousel-caption d-md-block">
                   <h5>Easy Pet Registration</h5>
                   <p>Register your pets with just a few clicks.</p>
                 </div>
-                <img src={Info} className="d-block w-100" alt="Pet Registration" />
               </div>
               <div className="carousel-item">
+                <img src="https://via.placeholder.com/1200x500?text=QR+Codes" className="d-block w-100" alt="QR Codes" />
                 <div className="carousel-caption d-md-block">
                   <h5>QR Code Generation</h5>
                   <p>Generate QR codes for quick identification.</p>
                 </div>
-                <img src="https://via.placeholder.com/1200x500?text=QR+Codes" className="d-block w-100" alt="QR Codes" />
               </div>
               <div className="carousel-item">
+                <img src="https://via.placeholder.com/1200x500?text=Subscription+Plans" className="d-block w-100" alt="Subscription Plans" />
                 <div className="carousel-caption d-md-block">
                   <h5>Subscription Plans</h5>
                   <p>Choose the best plan for your pet's safety.</p>
                 </div>
-                <img src="https://via.placeholder.com/1200x500?text=Subscription+Plans" className="d-block w-100" alt="Subscription Plans" />
               </div>
             </div>
             <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
@@ -88,7 +89,7 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
       {/* How to Subscribe Section */}
       <div className="row mt-5">
         <div className="col-md-10 mx-auto text-center">
-          <h2>3 simple steps to get going</h2>
+          <h2>3 Simple Steps to Get Going</h2>
           <p className="mt-3">
             Subscribing to our service is simple:
           </p>
