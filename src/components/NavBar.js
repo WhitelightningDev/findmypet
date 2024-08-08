@@ -27,11 +27,9 @@ const NavBar = ({ isAuthenticated, handleLogout }) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-            {!isAuthenticated && (
-              <li className="nav-item">
-                <Link className="nav-link" to="/">Home</Link>
-              </li>
-            )}
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Home</Link>
+            </li>
             {isAuthenticated ? (
               <>
                 <li className="nav-item">
