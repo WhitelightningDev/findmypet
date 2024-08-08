@@ -1,33 +1,47 @@
-/* Dashboard.css */
-
 /* Hover effect for cards */
 .card.hover-effect {
-    transition: all 0.3s ease;
-  }
-  
-  .card.hover-effect:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #cee8ff; /* Light background color on hover */
-  }
-  
-  /* Hover effect for list items */
-  .list-group-item.hover-list-item {
-    transition: all 0.2s ease;
-  }
-  
-  .list-group-item.hover-list-item:hover {
-    background-color: #cee8ff;
-    transform: translateY(-2px);
-  }
-  
-  /* Ensure buttons are not visible on hover */
-  .list-group-item .btn-outline-danger {
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-  
-  .list-group-item:hover .btn-outline-danger {
-    opacity: 1;
-  }
-  
+  transition: all 0.3s ease;
+  border-radius: 10px; /* Rounded corners */
+}
+
+.card.hover-effect:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #e9f4fe; /* Light background color on hover */
+}
+
+/* Hover effect for list items */
+.list-group-item.hover-list-item {
+  transition: all 0.2s ease;
+}
+
+.list-group-item.hover-list-item:hover {
+  background-color: #f0f8ff;
+  transform: translateY(-1px);
+}
+
+/* Ensure buttons are not visible on hover */
+.list-group-item .btn-outline-danger {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.list-group-item:hover .btn-outline-danger {
+  opacity: 1;
+}
+
+/* Card title styling */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* User greeting styling */
+.fs-4.fw-bold {
+  font-weight: 600;
+}
+
+/* Font weight for pet names */
+.fs-5.fw-semibold {
+  font-weight: 500;
+}

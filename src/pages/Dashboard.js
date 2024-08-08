@@ -99,7 +99,7 @@ const Dashboard = () => {
           {user && (
             <div className="d-flex align-items-center">
               <FaPaw className="me-2 text-primary" size={24} />
-              <span className="fs-4">Welcome, {user.name}!</span>
+              <span className="fs-4 fw-bold">Welcome, {user.name}!</span>
             </div>
           )}
         </div>
@@ -114,7 +114,7 @@ const Dashboard = () => {
 
       <div className="row">
         <div className="col-lg-4 col-md-6 mb-4 d-flex">
-          <div className="card border-primary shadow-sm flex-fill hover-effect" style={{ minHeight: '200px' }}>
+          <div className="card border-primary shadow-sm flex-fill hover-effect">
             <div className="card-body text-center">
               <h5 className="card-title">
                 <FaPlus className="me-2" />
@@ -131,7 +131,7 @@ const Dashboard = () => {
         </div>
 
         <div className="col-lg-4 col-md-6 mb-4 d-flex">
-          <div className="card border-success shadow-sm flex-fill hover-effect" style={{ minHeight: '200px' }}>
+          <div className="card border-success shadow-sm flex-fill hover-effect">
             <div className="card-body text-center">
               <h5 className="card-title">
                 <FaGift className="me-2" />
@@ -184,7 +184,7 @@ const Dashboard = () => {
                       style={{ width: '60px', height: '60px', objectFit: 'cover' }}
                     />
                   )}
-                  <span className="fs-5">{pet.name}</span>
+                  <span className="fs-5 fw-semibold">{pet.name}</span>
                 </div>
                 <button
                   className="btn btn-outline-danger"
