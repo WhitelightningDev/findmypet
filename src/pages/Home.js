@@ -1,20 +1,17 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'aos/dist/aos.css'; // Import AOS CSS
-import AOS from 'aos'; // Import AOS library
 import Info from '../assets/undraw_personal_info_re_ur1n.svg';
 
 const Home = ({ isAuthenticated, isSignedUp }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    AOS.init();
-    AOS.refresh(); // Refresh AOS to ensure it recognizes all elements
-
-    // If the user is authenticated and signed up, redirect to the dashboard
-    if (isAuthenticated && isSignedUp) {
-      navigate('/dashboard');
+    if (isAuthenticated) {
+      // If user is authenticated, redirect based on sign-up status
+      if (isSignedUp) {
+        navigate('/home');
+      }
     }
   }, [isAuthenticated, isSignedUp, navigate]);
 
@@ -23,8 +20,8 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
       {/* Hero Section */}
       <div className="row justify-content-center text-center">
         <div className="col-lg-8 col-md-10">
-          <h1 className="display-4" data-aos="fade-up" data-aos-duration="1000">Welcome to Find My Pet!</h1>
-          <p className="lead mt-3" data-aos="fade-up" data-aos-duration="1500">
+          <h1 className="display-4">Welcome to Find My Pet!</h1>
+          <p className="lead mt-3">
             Our platform helps you register your pets, generate QR codes for their collars, and subscribe to our services to ensure your furry friends are always protected.
           </p>
         </div>
@@ -33,7 +30,7 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
       {/* Carousel Section */}
       <div className="row mt-5">
         <div className="col-md-12">
-          <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel" data-aos="fade-up" data-aos-duration="1000">
+          <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-inner">
               <div className="carousel-item active">
                 <div className="carousel-caption d-md-block">
@@ -71,17 +68,17 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
 
       {/* Features Section */}
       <div className="row mt-5 text-center">
-        <div className="col-md-4" data-aos="fade-up" data-aos-duration="1000">
+        <div className="col-md-4">
           <i className="fas fa-dog fa-4x mb-3 text-primary"></i>
           <h3>Register Your Pets</h3>
           <p>Easy and quick registration for your pets with detailed profiles.</p>
         </div>
-        <div className="col-md-4" data-aos="fade-up" data-aos-duration="1500">
+        <div className="col-md-4">
           <i className="fas fa-qrcode fa-4x mb-3 text-success"></i>
           <h3>Generate QR Codes</h3>
           <p>Generate and print QR codes for your pet's collar to help identify them quickly.</p>
         </div>
-        <div className="col-md-4" data-aos="fade-up" data-aos-duration="2000">
+        <div className="col-md-4">
           <i className="fas fa-cogs fa-4x mb-3 text-warning"></i>
           <h3>Subscribe to Services</h3>
           <p>Choose from various subscription plans to keep your pets safe and secure.</p>
@@ -90,7 +87,7 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
 
       {/* How to Subscribe Section */}
       <div className="row mt-5">
-        <div className="col-md-10 mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+        <div className="col-md-10 mx-auto text-center">
           <h2>3 simple steps to get going</h2>
           <p className="mt-3">
             Subscribing to our service is simple:
@@ -105,7 +102,7 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
 
       {/* Benefits Section */}
       <div className="row mt-5 mb-5">
-        <div className="col-md-10 mx-auto text-center" data-aos="fade-up" data-aos-duration="1500">
+        <div className="col-md-10 mx-auto text-center">
           <h2>Benefits of Signing Up</h2>
           <p className="mt-3">
             When you sign up, you can generate a QR code for each of your pets. If your pet goes missing, anyone who finds them can scan the QR code, view your contact information, and quickly reach out to return your beloved pet safely.

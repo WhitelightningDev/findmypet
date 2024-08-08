@@ -6,14 +6,16 @@ import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import AddPet from './pages/AddPet';
-import Profile from './pages/Profile'; // Import the Profile page component
-import SubscriptionSelection from './components/SubscriptionSelection'; // Import the SubscriptionSelection page component
+import Profile from './pages/Profile';
+import SubscriptionSelection from './components/SubscriptionSelection';
 import NavBar from './components/NavBar';
+import Loader from './components/Loader';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isSignedUp, setIsSignedUp] = useState(false);
-  const baseURL = 'http://localhost:3030/'; // Base URL of your server
+  const [loading, setLoading] = useState(true);
+  const baseURL = 'http://localhost:3030/';
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -21,7 +23,6 @@ function App() {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       setIsAuthenticated(true);
 
-      // Fetch user profile to check if the user is signed up
       axios.get(`${baseURL}api/user/profile`)
         .then(response => {
           if (response.data) {
@@ -31,9 +32,14 @@ function App() {
         .catch(error => {
           console.error('Failed to fetch user profile', error);
           setIsSignedUp(false);
+        })
+        .finally(() => {
+          setLoading(false);
         });
+    } else {
+      setLoading(false);
     }
-  }, []);
+  }, [baseURL]);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -41,6 +47,10 @@ function App() {
     setIsAuthenticated(false);
     setIsSignedUp(false);
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <Router>
@@ -55,7 +65,6 @@ function App() {
           <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
           <Route path="/subscribe" element={isAuthenticated ? <SubscriptionSelection /> : <Navigate to="/login" />} />
           <Route path="/logout" element={<Navigate to="/" />} />
-          {/* Add other routes as necessary */}
         </Routes>
       </div>
     </Router>
