@@ -34,7 +34,7 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
             <div className="carousel-inner">
               <div className="carousel-item active">
                 <div className="carousel-caption d-md-block">
-                  <h5>Easy Pet Registration</h5>
+                  <h5 style="color: black" >Easy Pet Registration</h5>
                   <p>Register your pets with just a few clicks.</p>
                 </div>
                 <img src={Info} className="d-block w-100" alt="Pet Registration" />
