@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
-import { FaSave, FaUserEdit, FaExclamationTriangle, FaSpinner } from 'react-icons/fa';
+import { FaSave, FaUserEdit, FaExclamationTriangle, FaSpinner, FaMapMarkerAlt } from 'react-icons/fa';
 import '../Profile.css'; // Import the custom CSS file for additional styling
 
 const Profile = () => {
@@ -117,14 +117,17 @@ const Profile = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="street" className="form-label">Street</label>
-              <input
-                type="text"
-                className="form-control"
-                id="street"
-                value={user.address.street}
-                disabled={!editMode}
-                onChange={(e) => setUser({ ...user, address: { ...user.address, street: e.target.value } })}
-              />
+              <div className="input-group">
+                <span className="input-group-text"><FaMapMarkerAlt /></span>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="street"
+                  value={user.address.street}
+                  disabled={!editMode}
+                  onChange={(e) => setUser({ ...user, address: { ...user.address, street: e.target.value } })}
+                />
+              </div>
             </div>
             <div className="row mb-3">
               <div className="col-md-6">

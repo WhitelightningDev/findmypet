@@ -1,7 +1,5 @@
-/* Profile.css */
-
 /* General card styling */
-.card {
+.card.profile-card {
   border-radius: 8px;
   border: 1px solid #ddd;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -13,7 +11,7 @@
 }
 
 /* Hover effect for card */
-.card:hover {
+.card.profile-card:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -84,4 +82,10 @@
 
 .alert-danger .fa-exclamation-triangle {
   color: #721c24;
+}
+
+/* Additional icon styling */
+.input-group-text {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
 }
