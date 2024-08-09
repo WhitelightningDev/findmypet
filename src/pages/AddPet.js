@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaTrash, FaSpinner, FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa';
 
 const AddPet = () => {
-  const [newPet, setNewPet] = useState({ name: '', breed: '', age: '', type: '', tagType: '', photo: null });
+  const [newPet, setNewPet] = useState({ name: '', breed: '', age: '', photo: null, type: '', tag: '' });
   const [pets, setPets] = useState([]);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -38,8 +38,8 @@ const AddPet = () => {
       formData.append('name', newPet.name);
       formData.append('breed', newPet.breed);
       formData.append('age', newPet.age);
-      formData.append('type', newPet.type);  // Append the type of pet
-      formData.append('tagType', newPet.tagType);  // Append the tag type
+      formData.append('type', newPet.type);
+      formData.append('tag', newPet.tag);
       if (newPet.photo) {
         formData.append('photo', newPet.photo);
       }
@@ -51,7 +51,7 @@ const AddPet = () => {
         }
       });
 
-      setNewPet({ name: '', breed: '', age: '', type: '', tagType: '', photo: null });
+      setNewPet({ name: '', breed: '', age: '', photo: null, type: '', tag: '' });
       setSuccess('Pet added successfully!');
       setError('');
 
@@ -137,22 +137,46 @@ const AddPet = () => {
                 value={newPet.type}
                 onChange={(e) => setNewPet({ ...newPet, type: e.target.value })}
               >
-                <option value="">Select Type of Pet</option>
-                <option value="Dog">Dog</option>
-                <option value="Cat">Cat</option>
-                <option value="Horse">Horse</option>
+                <option value="">Select Pet Type</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="horse">Horse</option>
               </select>
             </div>
             <div className="mb-3">
-              <select
-                className="form-control"
-                value={newPet.tagType}
-                onChange={(e) => setNewPet({ ...newPet, tagType: e.target.value })}
-              >
-                <option value="">Select Tag Type</option>
-                <option value="Tag1">Tag1</option>  {/* Replace with actual tag name and image */}
-                <option value="Tag2">Tag2</option>  {/* Replace with actual tag name and image */}
-              </select>
+              <label>Choose a Tag:</label>
+              <div className="d-flex">
+                <div className="form-check me-3">
+                  <input
+                    className="form-check-input"
+                    type="radio"
+                    name="tag"
+                    value="tag1"
+                    id="tag1"
+                    checked={newPet.tag === 'tag1'}
+                    onChange={(e) => setNewPet({ ...newPet, tag: e.target.value })}
+                  />
+                  <label className="form-check-label" htmlFor="tag1">
+                    <img src="../assets/dogtag1-removebg-preview.png" alt="Tag 1" className="img-fluid" />
+                    Tag 1
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="radio"
+                    name="tag"
+                    value="tag2"
+                    id="tag2"
+                    checked={newPet.tag === 'tag2'}
+                    onChange={(e) => setNewPet({ ...newPet, tag: e.target.value })}
+                  />
+                  <label className="form-check-label" htmlFor="tag2">
+                    <img src="../assets/dogtag2-removebg-preview.png" alt="Tag 2" className="img-fluid" />
+                    Tag 2
+                  </label>
+                </div>
+              </div>
             </div>
             <div className="mb-3">
               <input
@@ -179,10 +203,20 @@ const AddPet = () => {
                     <h5 className="card-title">{pet.name}</h5>
                     <p className="card-text">Breed: {pet.breed}</p>
                     <p className="card-text">Age: {pet.age} years</p>
-                    <p className="card-text">Type: {pet.type}</p>  {/* Display type of pet */}
-                    <p className="card-text">Tag Type: {pet.tagType}</p>  {/* Display tag type */}
-                    {pet.photo && <img src={`${baseURL}uploads/${pet.photo}`} alt={pet.name} className="img-fluid" onError={handleImageError} />}
-                    <button className="btn btn-danger btn-sm mt-3" onClick={() => deletePet(pet._id)}>
+                    {pet.photo ? (
+                      <img
+                        src={`${baseURL}uploads/${pet.photo}`} // Correct path to image
+                        alt={pet.name}
+                        onError={handleImageError} // Handle image load errors
+                        className="img-fluid"
+                      />
+                    ) : (
+                      <p>No photo available</p>
+                    )}
+                    <button
+                      className="btn btn-danger mt-2"
+                      onClick={() => deletePet(pet._id)}
+                    >
                       <FaTrash /> Delete
                     </button>
                   </div>
