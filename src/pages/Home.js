@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Info from '../assets/undraw_personal_info_re_ur1n.svg';
+import Info from '../assets/Running-Off-Leash-the-Right-Way_-Etiquette-for-the-Dog-Park.jpg';
 
 const Home = ({ isAuthenticated, isSignedUp }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
     if (isAuthenticated) {
-      // If user is authenticated, redirect based on sign-up status
       if (isSignedUp) {
         navigate('/home');
       }
@@ -18,53 +17,23 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
   return (
     <div className="container mt-5">
       {/* Hero Section */}
-      <div className="row justify-content-center text-center">
-        <div className="col-lg-8 col-md-10">
-          <h1 className="display-4">Welcome to Find My Pet!</h1>
+      <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+        <div className="col-lg-7 p-3 p-lg-5 pt-lg-3">
+          <h1 className="display-4 fw-bold lh-1 text-body-emphasis">Welcome to Find My Pet!</h1>
           <p className="lead mt-3">
             Our platform helps you register your pets, generate QR codes for their collars, and subscribe to our services to ensure your furry friends are always protected.
           </p>
+          <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+            <button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Get Started</button>
+            <button type="button" className="btn btn-outline-secondary btn-lg px-4">Learn More</button>
+          </div>
+        </div>
+        <div className="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <img className="rounded-lg-3" src={Info} alt="Pet Registration" width="720" />
         </div>
       </div>
 
-      {/* Carousel Section */}
-      <div className="row mt-5">
-        <div className="col-md-12">
-          <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-            <div className="carousel-inner">
-              <div className="carousel-item active">
-                <div className="carousel-caption d-md-block">
-                  <h5>Easy Pet Registration</h5>
-                  <p>Register your pets with just a few clicks.</p>
-                </div>
-                <img src={Info} className="d-block w-100" alt="Pet Registration" />
-              </div>
-              <div className="carousel-item">
-                <div className="carousel-caption d-md-block">
-                  <h5>QR Code Generation</h5>
-                  <p>Generate QR codes for quick identification.</p>
-                </div>
-                <img src="https://via.placeholder.com/1200x500?text=QR+Codes" className="d-block w-100" alt="QR Codes" />
-              </div>
-              <div className="carousel-item">
-                <div className="carousel-caption d-md-block">
-                  <h5>Subscription Plans</h5>
-                  <p>Choose the best plan for your pet's safety.</p>
-                </div>
-                <img src="https://via.placeholder.com/1200x500?text=Subscription+Plans" className="d-block w-100" alt="Subscription Plans" />
-              </div>
-            </div>
-            <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span className="visually-hidden">Previous</span>
-            </a>
-            <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-              <span className="carousel-control-next-icon" aria-hidden="true"></span>
-              <span className="visually-hidden">Next</span>
-            </a>
-          </div>
-        </div>
-      </div>
+
 
       {/* Features Section */}
       <div className="row mt-5 text-center">
@@ -89,13 +58,11 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
       <div className="row mt-5">
         <div className="col-md-10 mx-auto text-center">
           <h2>3 simple steps to get going</h2>
-          <p className="mt-3">
-            Subscribing to our service is simple:
-          </p>
+          <p className="mt-3">Subscribing to our service is simple:</p>
           <ol className="text-left mt-3 mx-auto" style={{ maxWidth: '600px' }}>
             <li>Sign up on our platform and create your account.</li>
             <li>Register your pets with detailed information.</li>
-            <li>Choose a subscription plan that fits your needs.</li>
+            <li>Select the subsctription, pay and recive your chosen tag within 3 - 5 business days.</li>
           </ol>
         </div>
       </div>
