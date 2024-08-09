@@ -3,8 +3,8 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import { FaTrash, FaSpinner, FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa';
-import Tagone from '../assets/dogtag1-removebg-preview.png'
-import Tagtwo from '../assets/dogtag2-removebg-preview.png'
+import Tagone from '../assets/dogtag1-removebg-preview.png';
+import Tagtwo from '../assets/dogtag2-removebg-preview.png';
 
 const AddPet = () => {
   const [newPet, setNewPet] = useState({ name: '', breed: '', age: '', photo: null, type: '', tag: '' });
@@ -158,8 +158,8 @@ const AddPet = () => {
                     checked={newPet.tag === 'tag1'}
                     onChange={(e) => setNewPet({ ...newPet, tag: e.target.value })}
                   />
-                  <label className="form-check-label" htmlFor="tag1">
-                    <img src={Tagone} alt="Tag 1" className="img-fluid" />
+                  <label className="form-check-label d-flex align-items-center" htmlFor="tag1">
+                    <img src={Tagone} alt="Tag 1" className="img-thumbnail me-2" style={{ width: '35px', height: '35px' }} />
                     Tag 1
                   </label>
                 </div>
@@ -173,8 +173,8 @@ const AddPet = () => {
                     checked={newPet.tag === 'tag2'}
                     onChange={(e) => setNewPet({ ...newPet, tag: e.target.value })}
                   />
-                  <label className="form-check-label" htmlFor="tag2">
-                    <img src={Tagtwo} alt="Tag 2" className="img-fluid" />
+                  <label className="form-check-label d-flex align-items-center" htmlFor="tag2">
+                    <img src={Tagtwo} alt="Tag 2" className="img-thumbnail me-2" style={{ width: '35px', height: '35px' }} />
                     Tag 2
                   </label>
                 </div>
