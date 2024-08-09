@@ -7,9 +7,9 @@ import Tagtwo from '../assets/dogtag2-removebg-preview.png';
 import PlaceholderImage from '../assets/pets.png'; // Import your placeholder image
 
 // Images for dropdown options
-import dogImage from '../assets/dogs/dog_image.png'; // Replace with actual image paths
-import catImage from '../assets/cats/cat_image.png'; // Replace with actual image paths
-import horseImage from '../assets/horses/horse_image.png'; // Replace with actual image paths
+import dogImage from '../assets/dog.png'; // Replace with actual image paths
+import catImage from '../assets/pets.png'; // Replace with actual image paths
+import horseImage from '../assets/pets.png'; // Replace with actual image paths
 
 const AddPet = () => {
   const [newPet, setNewPet] = useState({ name: '', breed: '', age: '', photo: null, type: '', tagType: '' });
