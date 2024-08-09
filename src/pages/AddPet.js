@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useNavigate } from 'react-router-dom';
 import { FaTrash, FaSpinner, FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa';
 import Tagone from '../assets/dogtag1-removebg-preview.png';
 import Tagtwo from '../assets/dogtag2-removebg-preview.png';
@@ -12,7 +11,6 @@ const AddPet = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
   const baseURL = 'https://findmypet-df0a76e6b00e.herokuapp.com/'; // Updated base URL
 
   useEffect(() => {
