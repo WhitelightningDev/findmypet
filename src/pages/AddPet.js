@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaTrash, FaSpinner, FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa';
 import Tagone from '../assets/dogtag1-removebg-preview.png';
 import Tagtwo from '../assets/dogtag2-removebg-preview.png';
+import PlaceholderImage from '../assets/pets.png'; // Import your placeholder image
 
 const AddPet = () => {
   const [newPet, setNewPet] = useState({ name: '', breed: '', age: '', photo: null, type: '', tagType: '' });
@@ -11,7 +12,7 @@ const AddPet = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
-  const baseURL = 'https://findmypet-df0a76e6b00e.herokuapp.com/'; // Updated base URL
+  const baseURL = 'https://findmypet-df0a76e6b00e.herokuapp.com/';
 
   useEffect(() => {
     const fetchPets = async () => {
@@ -40,8 +41,13 @@ const AddPet = () => {
       formData.append('age', newPet.age);
       formData.append('type', newPet.type);
       formData.append('tagType', newPet.tagType);
+
+      // Add the placeholder image if no photo is provided
       if (newPet.photo) {
         formData.append('photo', newPet.photo);
+      } else {
+        const placeholderBlob = await fetch(PlaceholderImage).then(r => r.blob());
+        formData.append('photo', placeholderBlob, 'placeholder.png');
       }
 
       await axios.post(`${baseURL}api/pet/add`, formData, {
@@ -55,7 +61,6 @@ const AddPet = () => {
       setSuccess('Pet added successfully!');
       setError('');
 
-      // Refresh the list of pets
       const response = await axios.get(`${baseURL}api/pet`, {
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -70,7 +75,7 @@ const AddPet = () => {
   };
 
   const handleImageError = (e) => {
-    e.target.src = 'path/to/placeholder-image.png'; // Placeholder image
+    e.target.src = PlaceholderImage; // Use the placeholder image if the original image fails to load
     e.target.alt = 'Image not available'; // Default alt text
   };
 
@@ -213,17 +218,21 @@ const AddPet = () => {
                     <h5 className="card-title">{pet.name}</h5>
                     <p className="card-text">Breed: {pet.breed}</p>
                     <p className="card-text">Age: {pet.age} years</p>
-                    <p className="card-text">Type: {pet.type}</p> {/* Display pet type */}
-                    <p className="card-text">Tag: {pet.tagType}</p> {/* Display tag type */}
+                    <p className="card-text">Type: {pet.type}</p>
+                    <p className="card-text">Tag: {pet.tagType}</p>
                     {pet.photo ? (
                       <img
-                        src={`${baseURL}uploads/${pet.photo}`} // Correct path to image
+                        src={`${baseURL}uploads/${pet.photo}`}
                         alt={pet.name}
-                        onError={handleImageError} // Handle image load errors
+                        onError={handleImageError}
                         className="img-fluid"
                       />
                     ) : (
-                      <p>No photo available</p>
+                      <img
+                        src={PlaceholderImage} // Display the placeholder image if no photo exists
+                        alt={pet.name}
+                        className="img-fluid"
+                      />
                     )}
                     <button
                       className="btn btn-danger mt-2"
