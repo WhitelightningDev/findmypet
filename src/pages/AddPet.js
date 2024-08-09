@@ -3,6 +3,8 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import { FaTrash, FaSpinner, FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa';
+import Tagone from '../assets/dogtag1-removebg-preview.png'
+import Tagtwo from '../assets/dogtag2-removebg-preview.png'
 
 const AddPet = () => {
   const [newPet, setNewPet] = useState({ name: '', breed: '', age: '', photo: null, type: '', tag: '' });
@@ -157,7 +159,7 @@ const AddPet = () => {
                     onChange={(e) => setNewPet({ ...newPet, tag: e.target.value })}
                   />
                   <label className="form-check-label" htmlFor="tag1">
-                    <img src="../assets/dogtag1-removebg-preview.png" alt="Tag 1" className="img-fluid" />
+                    <img src={Tagone} alt="Tag 1" className="img-fluid" />
                     Tag 1
                   </label>
                 </div>
@@ -172,7 +174,7 @@ const AddPet = () => {
                     onChange={(e) => setNewPet({ ...newPet, tag: e.target.value })}
                   />
                   <label className="form-check-label" htmlFor="tag2">
-                    <img src="../assets/dogtag2-removebg-preview.png" alt="Tag 2" className="img-fluid" />
+                    <img src={Tagtwo} alt="Tag 2" className="img-fluid" />
                     Tag 2
                   </label>
                 </div>
