@@ -7,6 +7,7 @@ import Tagtwo from '../assets/dogtag2-removebg-preview.png';
 import PlaceholderImage from '../assets/pets.png'; // Import your placeholder image
 
 const dogBreeds = [
+  'Mixed','Unknown',
   'Boxer', 'Schnauzer', 'Cocker Spaniel', 'Golden Retriever', 'Pug',
   'Shih Tzu', 'Bull Terrier', 'Great Dane', 'Husky', 'French Bulldog',
   'Labrador Retriever', 'German Shepherd', 'Staffordshire Bull Terrier',
@@ -15,6 +16,7 @@ const dogBreeds = [
 ];
 
 const catBreeds = [
+  'Mixed','Unknown',
   'Persian', 'Maine Coon', 'Siamese', 'Bengal', 'British Shorthair', 'Sphynx',
   'Ragdoll', 'Scottish Fold', 'Abyssinian', 'Russian Blue', 'Siberian', 'Abyssinian',
   'Norwegian Forest Cat', 'Devon Rex', 'Cornish Rex', 'Himalayan', 'Birman', 'Manx',
@@ -23,9 +25,10 @@ const catBreeds = [
 ];
 
 const horseBreeds = [
+  'Mixed','Unknown',
   'Thoroughbred', 'Arabian', 'Warmblood', 'Saddlebred', 'Boerperd', 'Percheron',
   'Clydesdale', 'Haflinger', 'Appaloosa', 'Shire', 'Dutch Warmblood', 'Hanoverian',
-  'Irish Draught', 'Australian Stock Horse', 'South African Boerperd', 'Zebra',
+  'Irish Draught', 'Australian Stock Horse', 'South African Boerperd', 'Zebra (for conservation and tourism purposes)',
   'Pony of the Americas', 'Mongolian Horse', 'Paint Horse', 'Cleveland Bay'
 ];
 
