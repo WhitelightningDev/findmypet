@@ -62,6 +62,9 @@ const AddPet = () => {
         headers: { Authorization: `Bearer ${token}` }
       });
       setPets(response.data);
+
+      // Alternatively, you can refresh the entire page:
+      // window.location.reload();
     } catch (err) {
       setError('Failed to add new pet');
       setSuccess('');
