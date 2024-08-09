@@ -6,12 +6,36 @@ import Tagone from '../assets/dogtag1-removebg-preview.png';
 import Tagtwo from '../assets/dogtag2-removebg-preview.png';
 import PlaceholderImage from '../assets/pets.png'; // Import your placeholder image
 
+const dogBreeds = [
+  'Boxer', 'Schnauzer', 'Cocker Spaniel', 'Golden Retriever', 'Pug',
+  'Shih Tzu', 'Bull Terrier', 'Great Dane', 'Husky', 'French Bulldog',
+  'Labrador Retriever', 'German Shepherd', 'Staffordshire Bull Terrier',
+  'Beagle', 'Yorkshire Terrier', 'Dachshund', 'Border Collie', 'Poodle',
+  'Jack Russell Terrier', 'Rottweiler'
+];
+
+const catBreeds = [
+  'Persian', 'Maine Coon', 'Siamese', 'Bengal', 'British Shorthair', 'Sphynx',
+  'Ragdoll', 'Scottish Fold', 'Abyssinian', 'Russian Blue', 'Siberian', 'Abyssinian',
+  'Norwegian Forest Cat', 'Devon Rex', 'Cornish Rex', 'Himalayan', 'Birman', 'Manx',
+  'Savannah', 'Oriental Shorthair', 'Turkish Angora', 'Egyptian Mau', 'American Shorthair',
+  'Munchkin', 'Selkirk Rex', 'Chartreux', 'Japanese Bobtail', 'Somali', 'Tonkinese', 'Singapura'
+];
+
+const horseBreeds = [
+  'Thoroughbred', 'Arabian', 'Warmblood', 'Saddlebred', 'Boerperd', 'Percheron',
+  'Clydesdale', 'Haflinger', 'Appaloosa', 'Shire', 'Dutch Warmblood', 'Hanoverian',
+  'Irish Draught', 'Australian Stock Horse', 'South African Boerperd', 'Zebra',
+  'Pony of the Americas', 'Mongolian Horse', 'Paint Horse', 'Cleveland Bay'
+];
+
 const AddPet = () => {
   const [newPet, setNewPet] = useState({ name: '', breed: '', age: '', photo: null, type: '', tagType: '' });
   const [pets, setPets] = useState([]);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
+  const [breeds, setBreeds] = useState([]);
   const baseURL = 'https://findmypet-df0a76e6b00e.herokuapp.com/';
 
   useEffect(() => {
@@ -30,6 +54,13 @@ const AddPet = () => {
 
     fetchPets();
   }, []);
+
+  useEffect(() => {
+    if (newPet.type === 'dog') setBreeds(dogBreeds);
+    if (newPet.type === 'cat') setBreeds(catBreeds);
+    if (newPet.type === 'horse') setBreeds(horseBreeds);
+    if (!newPet.type) setBreeds([]);
+  }, [newPet.type]);
 
   const handleAddPet = async () => {
     setLoading(true);
@@ -129,24 +160,6 @@ const AddPet = () => {
               />
             </div>
             <div className="mb-3">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Breed"
-                value={newPet.breed}
-                onChange={(e) => setNewPet({ ...newPet, breed: e.target.value })}
-              />
-            </div>
-            <div className="mb-3">
-              <input
-                type="number"
-                className="form-control"
-                placeholder="Age"
-                value={newPet.age}
-                onChange={(e) => setNewPet({ ...newPet, age: e.target.value })}
-              />
-            </div>
-            <div className="mb-3">
               <select
                 className="form-control"
                 value={newPet.type}
@@ -157,6 +170,28 @@ const AddPet = () => {
                 <option value="cat">Cat</option>
                 <option value="horse">Horse</option>
               </select>
+            </div>
+            <div className="mb-3">
+              <select
+                className="form-control"
+                value={newPet.breed}
+                onChange={(e) => setNewPet({ ...newPet, breed: e.target.value })}
+                disabled={!newPet.type} // Disable breed dropdown if no pet type is selected
+              >
+                <option value="">Select Breed</option>
+                {breeds.map(breed => (
+                  <option key={breed} value={breed}>{breed}</option>
+                ))}
+              </select>
+            </div>
+            <div className="mb-3">
+              <input
+                type="number"
+                className="form-control"
+                placeholder="Age"
+                value={newPet.age}
+                onChange={(e) => setNewPet({ ...newPet, age: e.target.value })}
+              />
             </div>
             <div className="mb-3">
               <label>Choose a Tag:</label>
@@ -176,7 +211,7 @@ const AddPet = () => {
                       src={Tagone}
                       alt="Tag 1"
                       className="img-thumbnail mb-2"
-                      style={{ maxWidth: '150px', maxHeight: '150px', objectFit: 'contain' }}
+                      style={{ width: '150px', height: '150px', objectFit: 'contain' }}
                     />
                     Tag 1
                   </label>
@@ -196,7 +231,7 @@ const AddPet = () => {
                       src={Tagtwo}
                       alt="Tag 2"
                       className="img-thumbnail mb-2"
-                      style={{ maxWidth: '150px', maxHeight: '150px', objectFit: 'contain' }}
+                      style={{ width: '150px', height: '150px', objectFit: 'contain' }}
                     />
                     Tag 2
                   </label>
