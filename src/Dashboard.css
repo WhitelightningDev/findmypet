@@ -11,7 +11,7 @@ body {
 
 /* Ensure the content is readable on top of the background */
 .container {
-  background-color: rgba(255, 255, 255, 0.9); /* Slight white background for content */
+  background-color: rgba(57, 57, 57, 0.9); /* Slight white background for content */
   border-radius: 10px;
   padding: 20px;
   margin-top: 20px;
