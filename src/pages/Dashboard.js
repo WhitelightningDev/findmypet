@@ -3,7 +3,7 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import { FaPaw, FaPlus, FaSpinner, FaUserCircle, FaExclamationTriangle, FaGift, FaMoneyBillWave, FaTrash } from 'react-icons/fa';
-import '../Dashboard.css'; // Import the CSS file for custom styles
+import '../Dashboard.css';
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
@@ -68,6 +68,11 @@ const Dashboard = () => {
   const handlePetClick = (pet) => {
     localStorage.setItem('selectedPet', JSON.stringify(pet));
     navigate('/add-pet');
+  };
+
+  const handleImageError = (e) => {
+    e.target.src = '../assets/pets.png'; // Placeholder image path
+    e.target.alt = 'Image not available';
   };
 
   if (loading) {
@@ -182,6 +187,7 @@ const Dashboard = () => {
                       alt={pet.name}
                       className="me-3 rounded-circle"
                       style={{ width: '60px', height: '60px', objectFit: 'cover' }}
+                      onError={handleImageError}
                     />
                   )}
                   <span className="fs-5 fw-semibold">{pet.name}</span>
