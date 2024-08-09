@@ -213,6 +213,8 @@ const AddPet = () => {
                     <h5 className="card-title">{pet.name}</h5>
                     <p className="card-text">Breed: {pet.breed}</p>
                     <p className="card-text">Age: {pet.age} years</p>
+                    <p className="card-text">Type: {pet.type}</p> {/* Display pet type */}
+                    <p className="card-text">Tag: {pet.tagType}</p> {/* Display tag type */}
                     {pet.photo ? (
                       <img
                         src={`${baseURL}uploads/${pet.photo}`} // Correct path to image
