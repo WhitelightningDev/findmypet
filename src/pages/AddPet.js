@@ -107,35 +107,43 @@ const AddPet = () => {
         <div className="card-body">
           <form>
             <div className="mb-3">
+              <label htmlFor="name" className="form-label">Name</label>
               <input
                 type="text"
+                id="name"
                 className="form-control"
-                placeholder="Name"
+                placeholder="Enter pet's name"
                 value={newPet.name}
                 onChange={(e) => setNewPet({ ...newPet, name: e.target.value })}
               />
             </div>
             <div className="mb-3">
+              <label htmlFor="breed" className="form-label">Breed</label>
               <input
                 type="text"
+                id="breed"
                 className="form-control"
-                placeholder="Breed"
+                placeholder="Enter pet's breed"
                 value={newPet.breed}
                 onChange={(e) => setNewPet({ ...newPet, breed: e.target.value })}
               />
             </div>
             <div className="mb-3">
+              <label htmlFor="age" className="form-label">Age</label>
               <input
                 type="number"
+                id="age"
                 className="form-control"
-                placeholder="Age"
+                placeholder="Enter pet's age"
                 value={newPet.age}
                 onChange={(e) => setNewPet({ ...newPet, age: e.target.value })}
               />
             </div>
             <div className="mb-3">
+              <label htmlFor="type" className="form-label">Pet Type</label>
               <select
-                className="form-control"
+                id="type"
+                className="form-select"
                 value={newPet.type}
                 onChange={(e) => setNewPet({ ...newPet, type: e.target.value })}
               >
@@ -145,10 +153,10 @@ const AddPet = () => {
                 <option value="horse">Horse</option>
               </select>
             </div>
-            <div className="mb-3">
-              <label>Choose a Tag:</label>
-              <div className="d-flex">
-                <div className="form-check me-3">
+            <div className="mb-4">
+              <label className="form-label">Choose a Tag</label>
+              <div className="d-flex justify-content-between">
+                <div className="form-check">
                   <input
                     className="form-check-input"
                     type="radio"
@@ -159,7 +167,7 @@ const AddPet = () => {
                     onChange={(e) => setNewPet({ ...newPet, tag: e.target.value })}
                   />
                   <label className="form-check-label d-flex align-items-center" htmlFor="tag1">
-                    <img src={Tagone} alt="Tag 1" className="img-thumbnail me-2" style={{ width: '150px', height: '150px' }} />
+                    <img src={Tagone} alt="Tag 1" className="img-thumbnail me-2" style={{ width: '35px', height: '35px' }} />
                     Tag 1
                   </label>
                 </div>
@@ -174,26 +182,28 @@ const AddPet = () => {
                     onChange={(e) => setNewPet({ ...newPet, tag: e.target.value })}
                   />
                   <label className="form-check-label d-flex align-items-center" htmlFor="tag2">
-                    <img src={Tagtwo} alt="Tag 2" className="img-thumbnail me-2" style={{ width: '150px', height: '150px' }} />
+                    <img src={Tagtwo} alt="Tag 2" className="img-thumbnail me-2" style={{ width: '35px', height: '35px' }} />
                     Tag 2
                   </label>
                 </div>
               </div>
             </div>
-            <div className="mb-3">
+            <div className="mb-4">
+              <label htmlFor="photo" className="form-label">Upload Photo</label>
               <input
                 type="file"
+                id="photo"
                 className="form-control"
                 onChange={(e) => setNewPet({ ...newPet, photo: e.target.files[0] })}
               />
             </div>
-            <button type="button" className="btn btn-primary" onClick={handleAddPet}>Add Pet</button>
+            <button type="button" className="btn btn-primary w-100" onClick={handleAddPet}>Add Pet</button>
           </form>
         </div>
       </div>
 
-      <div className="mb-4">
-        <h3>Your Pets</h3>
+      <div className="mb-5">
+        <h3 className="mb-4">Your Pets</h3>
         {pets.length === 0 ? (
           <p>You have no pets registered.</p>
         ) : (
@@ -201,22 +211,23 @@ const AddPet = () => {
             {pets.map(pet => (
               <div key={pet._id} className="col-lg-4 col-md-6 mb-4">
                 <div className="card shadow-sm">
-                  <div className="card-body">
-                    <h5 className="card-title">{pet.name}</h5>
-                    <p className="card-text">Breed: {pet.breed}</p>
-                    <p className="card-text">Age: {pet.age} years</p>
+                  <div className="card-body text-center">
+                    <h5 className="card-title mb-3">{pet.name}</h5>
+                    <p className="card-text"><strong>Breed:</strong> {pet.breed}</p>
+                    <p className="card-text"><strong>Age:</strong> {pet.age} years</p>
                     {pet.photo ? (
                       <img
                         src={`${baseURL}uploads/${pet.photo}`} // Correct path to image
                         alt={pet.name}
                         onError={handleImageError} // Handle image load errors
-                        className="img-fluid"
+                        className="img-fluid rounded mb-3"
+                        style={{ maxHeight: '200px', objectFit: 'cover' }}
                       />
                     ) : (
                       <p>No photo available</p>
                     )}
                     <button
-                      className="btn btn-danger mt-2"
+                      className="btn btn-danger mt-2 w-100"
                       onClick={() => deletePet(pet._id)}
                     >
                       <FaTrash /> Delete
