@@ -7,7 +7,7 @@ import Tagone from '../assets/dogtag1-removebg-preview.png';
 import Tagtwo from '../assets/dogtag2-removebg-preview.png';
 
 const AddPet = () => {
-  const [newPet, setNewPet] = useState({ name: '', breed: '', age: '', photo: null, type: '', tag: '' });
+  const [newPet, setNewPet] = useState({ name: '', breed: '', age: '', photo: null, type: '', tagType: '' });
   const [pets, setPets] = useState([]);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -41,7 +41,7 @@ const AddPet = () => {
       formData.append('breed', newPet.breed);
       formData.append('age', newPet.age);
       formData.append('type', newPet.type);
-      formData.append('tag', newPet.tag);
+      formData.append('tagType', newPet.tagType); // Updated to tagType
       if (newPet.photo) {
         formData.append('photo', newPet.photo);
       }
@@ -53,7 +53,7 @@ const AddPet = () => {
         }
       });
 
-      setNewPet({ name: '', breed: '', age: '', photo: null, type: '', tag: '' });
+      setNewPet({ name: '', breed: '', age: '', photo: null, type: '', tagType: '' }); // Updated to tagType
       setSuccess('Pet added successfully!');
       setError('');
 
@@ -163,8 +163,8 @@ const AddPet = () => {
                     name="tag"
                     value="tag1"
                     id="tag1"
-                    checked={newPet.tag === 'tag1'}
-                    onChange={(e) => setNewPet({ ...newPet, tag: e.target.value })}
+                    checked={newPet.tagType === 'tag1'} // Updated to tagType
+                    onChange={(e) => setNewPet({ ...newPet, tagType: e.target.value })} // Updated to tagType
                   />
                   <label className="form-check-label d-flex align-items-center" htmlFor="tag1">
                     <img src={Tagone} alt="Tag 1" className="img-thumbnail me-2" style={{ width: '150px', height: '150px' }} />
@@ -178,8 +178,8 @@ const AddPet = () => {
                     name="tag"
                     value="tag2"
                     id="tag2"
-                    checked={newPet.tag === 'tag2'}
-                    onChange={(e) => setNewPet({ ...newPet, tag: e.target.value })}
+                    checked={newPet.tagType === 'tag2'} // Updated to tagType
+                    onChange={(e) => setNewPet({ ...newPet, tagType: e.target.value })} // Updated to tagType
                   />
                   <label className="form-check-label d-flex align-items-center" htmlFor="tag2">
                     <img src={Tagtwo} alt="Tag 2" className="img-thumbnail me-2" style={{ width: '150px', height: '150px' }} />
