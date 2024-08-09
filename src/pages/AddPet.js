@@ -159,7 +159,7 @@ const AddPet = () => {
                     onChange={(e) => setNewPet({ ...newPet, tag: e.target.value })}
                   />
                   <label className="form-check-label d-flex align-items-center" htmlFor="tag1">
-                    <img src={Tagone} alt="Tag 1" className="img-thumbnail me-2" style={{ width: '35px', height: '35px' }} />
+                    <img src={Tagone} alt="Tag 1" className="img-thumbnail me-2" style={{ width: '50px', height: '50px' }} />
                     Tag 1
                   </label>
                 </div>
@@ -174,7 +174,7 @@ const AddPet = () => {
                     onChange={(e) => setNewPet({ ...newPet, tag: e.target.value })}
                   />
                   <label className="form-check-label d-flex align-items-center" htmlFor="tag2">
-                    <img src={Tagtwo} alt="Tag 2" className="img-thumbnail me-2" style={{ width: '35px', height: '35px' }} />
+                    <img src={Tagtwo} alt="Tag 2" className="img-thumbnail me-2" style={{ width: '50px', height: '50px' }} />
                     Tag 2
                   </label>
                 </div>
