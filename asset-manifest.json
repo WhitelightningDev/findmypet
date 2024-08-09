@@ -1,10 +1,12 @@
 {
   "files": {
     "main.css": "/findmypet/static/css/main.0af7084e.css",
-    "main.js": "/findmypet/static/js/main.1cc1f761.js",
+    "main.js": "/findmypet/static/js/main.09d09fee.js",
     "static/js/453.c25afe26.chunk.js": "/findmypet/static/js/453.c25afe26.chunk.js",
     "static/media/fa-solid-900.ttf": "/findmypet/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
+    "static/media/dogtag2-removebg-preview.png": "/findmypet/static/media/dogtag2-removebg-preview.c42e7cef0794afa5a396.png",
     "static/media/fa-brands-400.ttf": "/findmypet/static/media/fa-brands-400.0ff70dcbf135d859ebf3.ttf",
+    "static/media/dogtag1-removebg-preview.png": "/findmypet/static/media/dogtag1-removebg-preview.f113be1647aaf0c280d0.png",
     "static/media/fa-solid-900.woff2": "/findmypet/static/media/fa-solid-900.93f719f4d62bfa3e748c.woff2",
     "static/media/fa-brands-400.woff2": "/findmypet/static/media/fa-brands-400.bb8d5a145e22822103fb.woff2",
     "static/media/fa-regular-400.ttf": "/findmypet/static/media/fa-regular-400.17a6e1aebccdbaa39e78.ttf",
@@ -16,11 +18,11 @@
     "static/media/fa-v4compatibility.woff2": "/findmypet/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
     "index.html": "/findmypet/index.html",
     "main.0af7084e.css.map": "/findmypet/static/css/main.0af7084e.css.map",
-    "main.1cc1f761.js.map": "/findmypet/static/js/main.1cc1f761.js.map",
+    "main.09d09fee.js.map": "/findmypet/static/js/main.09d09fee.js.map",
     "453.c25afe26.chunk.js.map": "/findmypet/static/js/453.c25afe26.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0af7084e.css",
-    "static/js/main.1cc1f761.js"
+    "static/js/main.09d09fee.js"
   ]
 }
