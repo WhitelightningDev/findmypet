@@ -160,8 +160,8 @@ const AddPet = () => {
             </div>
             <div className="mb-3">
               <label>Choose a Tag:</label>
-              <div className="d-flex">
-                <div className="form-check me-3">
+              <div className="d-flex justify-content-around">
+                <div className="form-check">
                   <input
                     className="form-check-input"
                     type="radio"
@@ -171,8 +171,8 @@ const AddPet = () => {
                     checked={newPet.tagType === 'tag1'}
                     onChange={(e) => setNewPet({ ...newPet, tagType: e.target.value })}
                   />
-                  <label className="form-check-label d-flex align-items-center" htmlFor="tag1">
-                    <img src={Tagone} alt="Tag 1" className="img-thumbnail me-2" style={{ width: '150px', height: '150px' }} />
+                  <label className="form-check-label d-flex flex-column align-items-center" htmlFor="tag1">
+                    <img src={Tagone} alt="Tag 1" className="img-thumbnail mb-2" style={{ width: '100px', height: '100px' }} />
                     Tag 1
                   </label>
                 </div>
@@ -186,8 +186,8 @@ const AddPet = () => {
                     checked={newPet.tagType === 'tag2'}
                     onChange={(e) => setNewPet({ ...newPet, tagType: e.target.value })}
                   />
-                  <label className="form-check-label d-flex align-items-center" htmlFor="tag2">
-                    <img src={Tagtwo} alt="Tag 2" className="img-thumbnail me-2" style={{ width: '150px', height: '50px' }} />
+                  <label className="form-check-label d-flex flex-column align-items-center" htmlFor="tag2">
+                    <img src={Tagtwo} alt="Tag 2" className="img-thumbnail mb-2" style={{ width: '100px', height: '100px' }} />
                     Tag 2
                   </label>
                 </div>
