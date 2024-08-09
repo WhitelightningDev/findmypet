@@ -6,31 +6,10 @@ import Tagone from '../assets/dogtag1-removebg-preview.png';
 import Tagtwo from '../assets/dogtag2-removebg-preview.png';
 import PlaceholderImage from '../assets/pets.png'; // Import your placeholder image
 
-const dogBreeds = [
-  'Mixed','Unknown',
-  'Boxer', 'Schnauzer', 'Cocker Spaniel', 'Golden Retriever', 'Pug',
-  'Shih Tzu', 'Bull Terrier', 'Great Dane', 'Husky', 'French Bulldog',
-  'Labrador Retriever', 'German Shepherd', 'Staffordshire Bull Terrier',
-  'Beagle', 'Yorkshire Terrier', 'Dachshund', 'Border Collie', 'Poodle',
-  'Jack Russell Terrier', 'Rottweiler'
-];
-
-const catBreeds = [
-  'Mixed','Unknown',
-  'Persian', 'Maine Coon', 'Siamese', 'Bengal', 'British Shorthair', 'Sphynx',
-  'Ragdoll', 'Scottish Fold', 'Abyssinian', 'Russian Blue', 'Siberian', 'Abyssinian',
-  'Norwegian Forest Cat', 'Devon Rex', 'Cornish Rex', 'Himalayan', 'Birman', 'Manx',
-  'Savannah', 'Oriental Shorthair', 'Turkish Angora', 'Egyptian Mau', 'American Shorthair',
-  'Munchkin', 'Selkirk Rex', 'Chartreux', 'Japanese Bobtail', 'Somali', 'Tonkinese', 'Singapura'
-];
-
-const horseBreeds = [
-  'Mixed','Unknown',
-  'Thoroughbred', 'Arabian', 'Warmblood', 'Saddlebred', 'Boerperd', 'Percheron',
-  'Clydesdale', 'Haflinger', 'Appaloosa', 'Shire', 'Dutch Warmblood', 'Hanoverian',
-  'Irish Draught', 'Australian Stock Horse', 'South African Boerperd', 'Zebra (for conservation and tourism purposes)',
-  'Pony of the Americas', 'Mongolian Horse', 'Paint Horse', 'Cleveland Bay'
-];
+// Images for dropdown options
+import dogImage from '../assets/dogs/dog_image.png'; // Replace with actual image paths
+import catImage from '../assets/cats/cat_image.png'; // Replace with actual image paths
+import horseImage from '../assets/horses/horse_image.png'; // Replace with actual image paths
 
 const AddPet = () => {
   const [newPet, setNewPet] = useState({ name: '', breed: '', age: '', photo: null, type: '', tagType: '' });
@@ -58,11 +37,33 @@ const AddPet = () => {
     fetchPets();
   }, []);
 
+  const fetchBreeds = (type) => {
+    switch (type) {
+      case 'dog':
+        return [
+          { value: 'boxer', label: 'Boxer', img: 'path_to_dog_images/boxer.png' },
+          // Add other dog breeds here
+        ];
+      case 'cat':
+        return [
+          { value: 'persian', label: 'Persian', img: '../images/cats/PersianCat.jpeg' },
+          // Add other cat breeds here
+        ];
+      case 'horse':
+        return [
+          { value: 'thoroughbred', label: 'Thoroughbred', img: 'path_to_horse_images/thoroughbred.png' },
+          // Add other horse breeds here
+        ];
+      default:
+        return [];
+    }
+  };
+
   useEffect(() => {
-    if (newPet.type === 'dog') setBreeds(dogBreeds);
-    if (newPet.type === 'cat') setBreeds(catBreeds);
-    if (newPet.type === 'horse') setBreeds(horseBreeds);
-    if (!newPet.type) setBreeds([]);
+    if (newPet.type) {
+      setBreeds(fetchBreeds(newPet.type));
+      setNewPet(prev => ({ ...prev, breed: '' })); // Reset breed when type changes
+    }
   }, [newPet.type]);
 
   const handleAddPet = async () => {
@@ -76,7 +77,6 @@ const AddPet = () => {
       formData.append('type', newPet.type);
       formData.append('tagType', newPet.tagType);
 
-      // Add the placeholder image if no photo is provided
       if (newPet.photo) {
         formData.append('photo', newPet.photo);
       } else {
@@ -109,8 +109,8 @@ const AddPet = () => {
   };
 
   const handleImageError = (e) => {
-    e.target.src = PlaceholderImage; // Use the placeholder image if the original image fails to load
-    e.target.alt = 'Image not available'; // Default alt text
+    e.target.src = PlaceholderImage;
+    e.target.alt = 'Image not available';
   };
 
   const deletePet = async (petId) => {
@@ -154,24 +154,24 @@ const AddPet = () => {
         <div className="card-body">
           <form>
             <div className="mb-3">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Name"
-                value={newPet.name}
-                onChange={(e) => setNewPet({ ...newPet, name: e.target.value })}
-              />
-            </div>
-            <div className="mb-3">
               <select
                 className="form-control"
                 value={newPet.type}
                 onChange={(e) => setNewPet({ ...newPet, type: e.target.value })}
               >
                 <option value="">Select Pet Type</option>
-                <option value="dog">Dog</option>
-                <option value="cat">Cat</option>
-                <option value="horse">Horse</option>
+                <option value="dog">
+                  <img src={dogImage} alt="Dog" style={{ width: '20px', height: '20px' }} />
+                  Dog
+                </option>
+                <option value="cat">
+                  <img src={catImage} alt="Cat" style={{ width: '20px', height: '20px' }} />
+                  Cat
+                </option>
+                <option value="horse">
+                  <img src={horseImage} alt="Horse" style={{ width: '20px', height: '20px' }} />
+                  Horse
+                </option>
               </select>
             </div>
             <div className="mb-3">
@@ -179,13 +179,25 @@ const AddPet = () => {
                 className="form-control"
                 value={newPet.breed}
                 onChange={(e) => setNewPet({ ...newPet, breed: e.target.value })}
-                disabled={!newPet.type} // Disable breed dropdown if no pet type is selected
+                disabled={!newPet.type}
               >
                 <option value="">Select Breed</option>
-                {breeds.map(breed => (
-                  <option key={breed} value={breed}>{breed}</option>
+                {breeds.map((breed) => (
+                  <option key={breed.value} value={breed.value}>
+                    <img src={breed.img} alt={breed.label} style={{ width: '20px', height: '20px' }} />
+                    {breed.label}
+                  </option>
                 ))}
               </select>
+            </div>
+            <div className="mb-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Name"
+                value={newPet.name}
+                onChange={(e) => setNewPet({ ...newPet, name: e.target.value })}
+              />
             </div>
             <div className="mb-3">
               <input
@@ -198,7 +210,7 @@ const AddPet = () => {
             </div>
             <div className="mb-3">
               <label>Choose a Tag:</label>
-              <div className="d-flex justify-content-between">
+              <div className="d-flex">
                 <div className="form-check me-3">
                   <input
                     className="form-check-input"
@@ -209,13 +221,8 @@ const AddPet = () => {
                     checked={newPet.tagType === 'tag1'}
                     onChange={(e) => setNewPet({ ...newPet, tagType: e.target.value })}
                   />
-                  <label className="form-check-label d-flex flex-column align-items-center" htmlFor="tag1">
-                    <img
-                      src={Tagone}
-                      alt="Tag 1"
-                      className="img-thumbnail mb-2"
-                      style={{ width: '150px', height: '150px', objectFit: 'contain' }}
-                    />
+                  <label className="form-check-label d-flex align-items-center" htmlFor="tag1">
+                    <img src={Tagone} alt="Tag 1" className="img-thumbnail me-2" style={{ width: '150px', height: '150px' }} />
                     Tag 1
                   </label>
                 </div>
@@ -229,13 +236,8 @@ const AddPet = () => {
                     checked={newPet.tagType === 'tag2'}
                     onChange={(e) => setNewPet({ ...newPet, tagType: e.target.value })}
                   />
-                  <label className="form-check-label d-flex flex-column align-items-center" htmlFor="tag2">
-                    <img
-                      src={Tagtwo}
-                      alt="Tag 2"
-                      className="img-thumbnail mb-2"
-                      style={{ width: '150px', height: '150px', objectFit: 'contain' }}
-                    />
+                  <label className="form-check-label d-flex align-items-center" htmlFor="tag2">
+                    <img src={Tagtwo} alt="Tag 2" className="img-thumbnail me-2" style={{ width: '150px', height: '150px' }} />
                     Tag 2
                   </label>
                 </div>
@@ -277,7 +279,7 @@ const AddPet = () => {
                       />
                     ) : (
                       <img
-                        src={PlaceholderImage} // Display the placeholder image if no photo exists
+                        src={PlaceholderImage}
                         alt={pet.name}
                         className="img-fluid"
                       />
