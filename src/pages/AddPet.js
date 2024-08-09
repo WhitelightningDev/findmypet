@@ -160,8 +160,8 @@ const AddPet = () => {
             </div>
             <div className="mb-3">
               <label>Choose a Tag:</label>
-              <div className="d-flex justify-content-around">
-                <div className="form-check">
+              <div className="d-flex justify-content-between">
+                <div className="form-check me-3">
                   <input
                     className="form-check-input"
                     type="radio"
@@ -172,7 +172,12 @@ const AddPet = () => {
                     onChange={(e) => setNewPet({ ...newPet, tagType: e.target.value })}
                   />
                   <label className="form-check-label d-flex flex-column align-items-center" htmlFor="tag1">
-                    <img src={Tagone} alt="Tag 1" className="img-thumbnail mb-2" style={{ width: '100px', height: '100px' }} />
+                    <img
+                      src={Tagone}
+                      alt="Tag 1"
+                      className="img-thumbnail mb-2"
+                      style={{ maxWidth: '150px', maxHeight: '150px', objectFit: 'contain' }}
+                    />
                     Tag 1
                   </label>
                 </div>
@@ -187,7 +192,12 @@ const AddPet = () => {
                     onChange={(e) => setNewPet({ ...newPet, tagType: e.target.value })}
                   />
                   <label className="form-check-label d-flex flex-column align-items-center" htmlFor="tag2">
-                    <img src={Tagtwo} alt="Tag 2" className="img-thumbnail mb-2" style={{ width: '100px', height: '100px' }} />
+                    <img
+                      src={Tagtwo}
+                      alt="Tag 2"
+                      className="img-thumbnail mb-2"
+                      style={{ maxWidth: '150px', maxHeight: '150px', objectFit: 'contain' }}
+                    />
                     Tag 2
                   </label>
                 </div>
