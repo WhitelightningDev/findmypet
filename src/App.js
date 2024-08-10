@@ -10,6 +10,7 @@ import Profile from './pages/Profile';
 import SubscriptionSelection from './components/SubscriptionSelection';
 import NavBar from './components/NavBar';
 import Loader from './components/Loader';
+import PetProfile from './components/PetProfile';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -55,6 +56,7 @@ function App() {
         <NavBar isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
         <Routes>
           <Route path="/" element={<Home isAuthenticated={isAuthenticated} isSignedUp={isSignedUp} />} />
+          <Route path="/pet/:id" element={isAuthenticated ? <PetProfile /> : <Navigate to="/login" />} />
           <Route path="/signup" element={isAuthenticated ? <Navigate to="/" /> : <SignUp />} />
           <Route path="/login" element={isAuthenticated ? <Navigate to="/" /> : <Login setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />

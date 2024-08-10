@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaTrash, FaSpinner, FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import Tagone from '../assets/dogtag1-removebg-preview.png';
 import Tagtwo from '../assets/dogtag2-removebg-preview.png';
 import PlaceholderImage from '../assets/pets.png'; // Import your placeholder image
@@ -204,19 +205,17 @@ const AddPet = () => {
                     className="form-check-input"
                     type="radio"
                     name="tagType"
+                    id="tagType1"
                     value="tag1"
-                    id="tag1"
-                    checked={newPet.tagType === 'tag1'}
                     onChange={(e) => setNewPet({ ...newPet, tagType: e.target.value })}
                   />
-                  <label className="form-check-label d-flex flex-column align-items-center" htmlFor="tag1">
+                  <label className="form-check-label" htmlFor="tagType1">
                     <img
                       src={Tagone}
-                      alt="Tag 1"
-                      className="img-thumbnail mb-2"
-                      style={{ width: '150px', height: '150px', objectFit: 'contain' }}
+                      alt="Tag One"
+                      className="img-fluid"
+                      style={{ width: '75px', height: '75px', objectFit: 'contain' }}
                     />
-                    Tag 1
                   </label>
                 </div>
                 <div className="form-check">
@@ -224,19 +223,17 @@ const AddPet = () => {
                     className="form-check-input"
                     type="radio"
                     name="tagType"
+                    id="tagType2"
                     value="tag2"
-                    id="tag2"
-                    checked={newPet.tagType === 'tag2'}
                     onChange={(e) => setNewPet({ ...newPet, tagType: e.target.value })}
                   />
-                  <label className="form-check-label d-flex flex-column align-items-center" htmlFor="tag2">
+                  <label className="form-check-label" htmlFor="tagType2">
                     <img
                       src={Tagtwo}
-                      alt="Tag 2"
-                      className="img-thumbnail mb-2"
-                      style={{ width: '150px', height: '150px', objectFit: 'contain' }}
+                      alt="Tag Two"
+                      className="img-fluid"
+                      style={{ width: '75px', height: '75px', objectFit: 'contain' }}
                     />
-                    Tag 2
                   </label>
                 </div>
               </div>
@@ -248,52 +245,51 @@ const AddPet = () => {
                 onChange={(e) => setNewPet({ ...newPet, photo: e.target.files[0] })}
               />
             </div>
-            <button type="button" className="btn btn-primary" onClick={handleAddPet}>Add Pet</button>
+            <button
+              type="button"
+              className="btn btn-primary w-100"
+              onClick={handleAddPet}
+              disabled={loading}
+            >
+              Add Pet
+            </button>
           </form>
         </div>
       </div>
 
-      <div className="mb-4">
-        <h3>Your Pets</h3>
-        {pets.length === 0 ? (
-          <p>You have no pets registered.</p>
-        ) : (
-          <div className="row">
-            {pets.map(pet => (
-              <div key={pet._id} className="col-lg-4 col-md-6 mb-4">
-                <div className="card shadow-sm">
-                  <div className="card-body">
-                    <h5 className="card-title">{pet.name}</h5>
-                    <p className="card-text">Breed: {pet.breed}</p>
-                    <p className="card-text">Age: {pet.age} years</p>
-                    <p className="card-text">Pet Type: {pet.type}</p>
-                    <p className="card-text">Tag: {pet.tagType}</p>
-                    {pet.photo ? (
-                      <img
-                        src={`${baseURL}uploads/${pet.photo}`}
-                        alt={pet.name}
-                        onError={handleImageError}
-                        className="img-fluid"
-                      />
-                    ) : (
-                      <img
-                        src={PlaceholderImage} // Display the placeholder image if no photo exists
-                        alt={pet.name}
-                        className="img-fluid"
-                      />
-                    )}
-                    <button
-                      className="btn btn-danger mt-2"
-                      onClick={() => deletePet(pet._id)}
-                    >
-                      <FaTrash /> Delete
-                    </button>
-                  </div>
+      <h3 className="text-center mb-4">Your Pets</h3>
+      <div className="row">
+        {pets.map((pet) => (
+          <div className="col-md-4 mb-4" key={pet._id}>
+            <div className="card shadow-sm">
+              <img
+                src={`${baseURL}uploads/${pet.photo}`}
+                alt={pet.name}
+                className="card-img-top"
+                style={{ height: '200px', objectFit: 'cover' }}
+                onError={handleImageError} // Call handleImageError if image fails to load
+              />
+              <div className="card-body">
+                <h5 className="card-title">{pet.name}</h5>
+                <p className="card-text">Breed: {pet.breed}</p>
+                <p className="card-text">Age: {pet.age}</p>
+                <p className="card-text">Type: {pet.type}</p>
+                <p className="card-text">Tag: {pet.tagType}</p>
+                <div className="d-flex justify-content-between">
+                  <Link to={`/pet/${pet._id}`} className="btn btn-primary btn-sm">
+                    View Details
+                  </Link>
+                  <button
+                    className="btn btn-danger btn-sm"
+                    onClick={() => deletePet(pet._id)}
+                  >
+                    <FaTrash />
+                  </button>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
-        )}
+        ))}
       </div>
     </div>
   );
