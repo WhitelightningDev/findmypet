@@ -73,7 +73,7 @@ const AddPet = () => {
       formData.append('name', newPet.name);
       formData.append('breed', newPet.breed);
       formData.append('age', newPet.age);
-      formData.append('type', newPet.type);
+      formData.append('Pet type', newPet.type);
       formData.append('tagType', newPet.tagType);
 
       // Add the placeholder image if no photo is provided
