@@ -8,7 +8,7 @@ const fetchPetDetails = async (petId) => {
     const response = await axios.get(`${API_BASE_URL}/${petId}`);
     return response.data;
   } catch (error) {
-    console.error('Failed to fetch pet details:', error);
+    console.error('Failed to fetch pet details:', error.response ? error.response.data : error.message);
     throw error;
   }
 };
@@ -40,7 +40,6 @@ const PetProfile = ({ petId }) => {
       <p>Age: {petDetails.age}</p>
       <p>Type: {petDetails.type}</p>
       <p>Tag Type: {petDetails.tagType}</p>
-      {petDetails.photo && <img src={`${API_BASE_URL}/uploads/${petDetails.photo}`} alt={petDetails.name} />}
     </div>
   );
 };
