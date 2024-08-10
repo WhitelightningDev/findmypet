@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes, Navigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
@@ -56,7 +56,10 @@ function App() {
         <NavBar isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
         <Routes>
           <Route path="/" element={<Home isAuthenticated={isAuthenticated} isSignedUp={isSignedUp} />} />
-          <Route path="/pet/:id" element={isAuthenticated ? <PetProfile /> : <Navigate to="/login" />} />
+          <Route
+            path="/pet/:id"
+            element={isAuthenticated ? <PetProfileWrapper /> : <Navigate to="/login" />}
+          />
           <Route path="/signup" element={isAuthenticated ? <Navigate to="/" /> : <SignUp />} />
           <Route path="/login" element={isAuthenticated ? <Navigate to="/" /> : <Login setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
@@ -69,5 +72,11 @@ function App() {
     </Router>
   );
 }
+
+const PetProfileWrapper = () => {
+  const { id } = useParams(); // Get the petId from the URL params
+
+  return <PetProfile petId={id} />;
+};
 
 export default App;
