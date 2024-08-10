@@ -1,80 +1,162 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Info from '../assets/Running-Off-Leash-the-Right-Way_-Etiquette-for-the-Dog-Park.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDog, faCreditCard, faQrcode } from '@fortawesome/free-solid-svg-icons';
+import Info from '../assets/istockphoto-471388365-612x612-removebg-preview.png';
 
 const Home = ({ isAuthenticated, isSignedUp }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isAuthenticated) {
-      if (isSignedUp) {
-        navigate('/home');
-      }
+    if (isAuthenticated && isSignedUp) {
+      navigate('/home');
     }
   }, [isAuthenticated, isSignedUp, navigate]);
 
   return (
     <div className="container mt-5">
       {/* Hero Section */}
-      <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-        <div className="col-lg-7 p-3 p-lg-5 pt-lg-3">
-          <h1 className="display-4 fw-bold lh-1 text-body-emphasis">Welcome to Find My Pet!</h1>
-          <p className="lead mt-3">
-            Our platform helps you register your pets, generate QR codes for their collars, and subscribe to our services to ensure your furry friends are always protected.
-          </p>
-          <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-            <button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Get Started</button>
-            <button type="button" className="btn btn-outline-secondary btn-lg px-4">Learn More</button>
+      <section className="px-4 py-5 my-5 text-center">
+        <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div className="col-lg-6">
+            <h1 className="display-4 fw-bold mb-3 text-primary">Welcome to Find My Pet!</h1>
+            <p className="lead mb-4">
+              "Find My Pet" is a platform designed to help pet owners efficiently manage and locate their pets. By allowing users to store detailed information, including images, breeds, and unique tags, it enhances the chances of quickly recovering lost pets.
+            </p>
+            <div className="d-grid gap-2 d-md-flex justify-content-md-center">
+              <button
+                type="button"
+                className="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
+                onClick={() => navigate('/signup')}
+              >
+                Get Started
+              </button>
+              <button type="button" className="btn btn-outline-secondary btn-lg px-4">
+                Learn More
+              </button>
+            </div>
+          </div>
+          <div className="col-lg-6">
+            <img
+              src={Info}
+              className="d-block mx-lg-auto img-fluid rounded-3"
+              alt="Pet Registration"
+              width="700"
+              height="500"
+              loading="lazy"
+            />
           </div>
         </div>
-        <div className="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-          <img className="rounded-lg-3" src={Info} alt="Pet Registration" width="720" />
-        </div>
-      </div>
+        <hr></hr>
+      </section>
 
+     
 
+      <div className="container marketing">
+        {/* Three columns of text below the carousel */}
+        <div className="row">
+          <div className="col-lg-4 text-center">
+            <FontAwesomeIcon icon={faDog} className="mb-3" size="4x" color="#6c757d" />
+            <h2 className="fw-normal">Add your pet</h2>
+            <p>Sign up add your pet details, your dashboard will be your cental hub for all your pets and their information</p>
+          </div>
+          <div className="col-lg-4 text-center">
+            <FontAwesomeIcon icon={faCreditCard} className="mb-3" size="4x" color="#6c757d" />
+            <h2 className="fw-normal">Subscribe</h2>
+            <p>Once you have signed up, subscribe with our secure payment gateways and voilia, you are ready to recive your custom QR code.</p>
+          </div>
+          <div className="col-lg-4 text-center">
+            <FontAwesomeIcon icon={faQrcode} className="mb-3" size="4x" color="#6c757d" />
+            <h2 className="fw-normal">QR Code</h2>
+            <p>Once your subscription is verified either send us a email with the proof of payment, and we will send you your QR code with the relevant tag you have selected when creating your pet profile/s</p>
+          </div>
+        </div>
 
-      {/* Features Section */}
-      <div className="row mt-5 text-center">
-        <div className="col-md-4">
-          <i className="fas fa-dog fa-4x mb-3 text-primary"></i>
-          <h3>Register Your Pets</h3>
-          <p>Easy and quick registration for your pets with detailed profiles.</p>
-        </div>
-        <div className="col-md-4">
-          <i className="fas fa-qrcode fa-4x mb-3 text-success"></i>
-          <h3>Generate QR Codes</h3>
-          <p>Generate and print QR codes for your pet's collar to help identify them quickly.</p>
-        </div>
-        <div className="col-md-4">
-          <i className="fas fa-cogs fa-4x mb-3 text-warning"></i>
-          <h3>Subscribe to Services</h3>
-          <p>Choose from various subscription plans to keep your pets safe and secure.</p>
-        </div>
-      </div>
+        {/* START THE FEATURETTES */}
+        <hr className="featurette-divider" />
 
-      {/* How to Subscribe Section */}
-      <div className="row mt-5">
-        <div className="col-md-10 mx-auto text-center">
-          <h2>3 simple steps to get going</h2>
-          <p className="mt-3">Subscribing to our service is simple:</p>
-          <ol className="text-left mt-3 mx-auto" style={{ maxWidth: '600px' }}>
-            <li>Sign up on our platform and create your account.</li>
-            <li>Register your pets with detailed information.</li>
-            <li>Select the subsctription, pay and recive your chosen tag within 3 - 5 business days.</li>
-          </ol>
+        <div className="row featurette">
+          <div className="col-md-6">
+            <h2 className="featurette-heading fw-normal lh-1">
+            Enhanced Pet Safety
+            </h2>
+            <p className="lead">With detailed pet profiles, including images, breeds, and unique tags, "Find My Pet" significantly increases the chances of quickly locating lost pets. The platform provides peace of mind, knowing that your pet's information is easily accessible and shareable in case of emergencies.</p>
+          </div>
+          <div className="col-md-5">
+            <svg
+              className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+              width="500"
+              height="500"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Placeholder"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+            >
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#e9ecef" />
+              <text x="50%" y="50%" fill="#6c757d" dy=".3em">500x500</text>
+            </svg>
+          </div>
         </div>
-      </div>
 
-      {/* Benefits Section */}
-      <div className="row mt-5 mb-5">
-        <div className="col-md-10 mx-auto text-center">
-          <h2>Benefits of Signing Up</h2>
-          <p className="mt-3">
-            When you sign up, you can generate a QR code for each of your pets. If your pet goes missing, anyone who finds them can scan the QR code, view your contact information, and quickly reach out to return your beloved pet safely.
-          </p>
+        <hr className="featurette-divider" />
+
+        <div className="row featurette">
+          <div className="col-md-7 order-md-2">
+            <h2 className="featurette-heading fw-normal lh-1">
+            Convenient Pet Management
+            </h2>
+            <p className="lead">"Find My Pet" offers a centralized platform where users can manage all their pet's important details in one place. From vaccination records to identifying features, everything is organized, making it easier to keep track of your pet's needs.</p>
+          </div>
+          <div className="col-md-5 order-md-1">
+            <svg
+              className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+              width="500"
+              height="500"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Placeholder"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+            >
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#e9ecef" />
+              <text x="50%" y="50%" fill="#6c757d" dy=".3em">500x500</text>
+            </svg>
+          </div>
         </div>
+
+        <hr className="featurette-divider" />
+
+        <div className="row featurette">
+          <div className="col-md-7">
+            <h2 className="featurette-heading fw-normal lh-1">
+            Exclusive Features and Support
+            </h2>
+            <p className="lead">By joining "Find My Pet," users gain access to premium features such as QR code identification, secure payment options for additional services, and a supportive community of fellow pet owners. These tools and resources help ensure your pet's safety and well-being.</p>
+          </div>
+          <div className="col-md-5">
+            <svg
+              className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+              width="500"
+              height="500"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Placeholder"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+            >
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#e9ecef" />
+              <text x="50%" y="50%" fill="#6c757d" dy=".3em">500x500</text>
+            </svg>
+          </div>
+        </div>
+
+        <hr className="featurette-divider" />
       </div>
     </div>
   );
