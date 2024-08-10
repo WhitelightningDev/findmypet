@@ -1,65 +1,54 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
+const API_BASE_URL = 'https://findmypet-df0a76e6b00e.herokuapp.com/api/pets';
+
+const fetchPetDetails = async (petId) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/${petId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Failed to fetch pet details:', error);
+    throw error;
+  }
+};
+
+// Usage in a component
 const PetProfile = ({ petId }) => {
-  const [pet, setPet] = useState(null);
-  const [error, setError] = useState('');
-  const baseURL = 'https://findmypet-df0a76e6b00e.herokuapp.com/';
+  const [petDetails, setPetDetails] = React.useState(null);
+  const [error, setError] = React.useState(null);
 
-  useEffect(() => {
-    const fetchPetDetails = async () => {
+  React.useEffect(() => {
+    const getPetDetails = async () => {
       try {
-        const response = await axios.get(`${baseURL}api/pets/${petId}`);
-        setPet(response.data);
-      } catch (err) {
-        console.error('Failed to fetch pet details:', err.message);
+        const data = await fetchPetDetails(petId);
+        setPetDetails(data);
+      } catch (error) {
         setError('Failed to fetch pet details');
       }
     };
 
-    fetchPetDetails();
+    if (petId) {
+      getPetDetails();
+    }
   }, [petId]);
 
-  if (error) {
-    return (
-      <div className="container mt-5">
-        <div className="alert alert-danger">
-          {error}
-        </div>
-      </div>
-    );
-  }
-
-  if (!pet) {
-    return (
-      <div className="container mt-5 text-center">
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    );
-  }
+  if (error) return <div>{error}</div>;
+  if (!petDetails) return <div>Loading...</div>;
 
   return (
-    <div className="container mt-5">
-      <div className="card shadow-sm">
-        <div className="card-body">
-          <h5 className="card-title">Pet Profile</h5>
-          <p className="card-text">Name: {pet.name}</p>
-          <p className="card-text">Breed: {pet.breed}</p>
-          <p className="card-text">Age: {pet.age}</p>
-          <p className="card-text">Type: {pet.type}</p>
-          <p className="card-text">Tag Type: {pet.tagType}</p>
-          {pet.photo && (
-            <img
-              src={`https://findmypet-df0a76e6b00e.herokuapp.com/uploads/${pet.photo}`}
-              alt={pet.name}
-              className="img-fluid"
-            />
-          )}
-        </div>
-      </div>
+    <div>
+      <h1>{petDetails.name}</h1>
+      <p>Breed: {petDetails.breed}</p>
+      <p>Age: {petDetails.age}</p>
+      <p>Type: {petDetails.type}</p>
+      <p>Tag Type: {petDetails.tagType}</p>
+      {petDetails.photo && (
+        <img
+          src={`https://findmypet-df0a76e6b00e.herokuapp.com/uploads/${petDetails.photo}`}
+          alt={petDetails.name}
+        />
+      )}
     </div>
   );
 };
