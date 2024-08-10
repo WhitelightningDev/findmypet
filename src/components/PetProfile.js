@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import PlaceholderImage from '../assets/pets.png'; // Import your placeholder image
 
 const PetProfile = () => {
   const [pet, setPet] = useState(null);
@@ -32,11 +31,6 @@ const PetProfile = () => {
     fetchPetDetails();
   }, [petId]);
 
-  const handleImageError = (e) => {
-    e.target.src = PlaceholderImage; // Use the placeholder image if the original image fails to load
-    e.target.alt = 'Image not available'; // Default alt text
-  };
-
   if (error) {
     return (
       <div className="container mt-5">
@@ -60,25 +54,12 @@ const PetProfile = () => {
   return (
     <div className="container mt-5">
       <div className="card shadow-sm">
-        <img
-          src={pet.photo || PlaceholderImage}
-          alt={pet.name}
-          className="card-img-top"
-          style={{ height: '300px', objectFit: 'cover' }}
-          onError={handleImageError}
-        />
         <div className="card-body">
           <h5 className="card-title">{pet.name}</h5>
           <p className="card-text">Breed: {pet.breed}</p>
           <p className="card-text">Age: {pet.age}</p>
           <p className="card-text">Type: {pet.type}</p>
           <p className="card-text">Tag Type: {pet.tagType}</p>
-          <button
-            className="btn btn-secondary"
-            onClick={() => navigate(-1)} // Navigate back to the previous page
-          >
-            Back
-          </button>
         </div>
       </div>
     </div>
