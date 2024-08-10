@@ -13,6 +13,10 @@ const PetProfile = () => {
 
   useEffect(() => {
     const fetchPetDetails = async () => {
+      if (!petId) {
+        setError('Pet ID is missing');
+        return;
+      }
       try {
         const token = localStorage.getItem('token');
         const response = await axios.get(`${baseURL}api/pet/${petId}`, {
