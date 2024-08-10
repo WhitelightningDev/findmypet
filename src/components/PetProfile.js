@@ -23,7 +23,7 @@ const PetProfile = () => {
         });
         setPet(response.data);
       } catch (err) {
-        console.error(err);
+        console.error('Failed to fetch pet details:', err.message);
         setError('Failed to fetch pet details');
       }
     };
