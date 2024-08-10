@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const API_BASE_URL = 'https://findmypet-df0a76e6b00e.herokuapp.com/api/pets';
@@ -13,12 +13,11 @@ const fetchPetDetails = async (petId) => {
   }
 };
 
-// Usage in a component
 const PetProfile = ({ petId }) => {
-  const [petDetails, setPetDetails] = React.useState(null);
-  const [error, setError] = React.useState(null);
+  const [petDetails, setPetDetails] = useState(null);
+  const [error, setError] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const getPetDetails = async () => {
       try {
         const data = await fetchPetDetails(petId);
@@ -28,9 +27,7 @@ const PetProfile = ({ petId }) => {
       }
     };
 
-    if (petId) {
-      getPetDetails();
-    }
+    getPetDetails();
   }, [petId]);
 
   if (error) return <div>{error}</div>;
@@ -43,12 +40,7 @@ const PetProfile = ({ petId }) => {
       <p>Age: {petDetails.age}</p>
       <p>Type: {petDetails.type}</p>
       <p>Tag Type: {petDetails.tagType}</p>
-      {petDetails.photo && (
-        <img
-          src={`https://findmypet-df0a76e6b00e.herokuapp.com/uploads/${petDetails.photo}`}
-          alt={petDetails.name}
-        />
-      )}
+      {petDetails.photo && <img src={`${API_BASE_URL}/uploads/${petDetails.photo}`} alt={petDetails.name} />}
     </div>
   );
 };
