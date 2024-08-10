@@ -7,8 +7,7 @@ import PlaceholderImage from '../assets/pets.png'; // Import your placeholder im
 const PetProfile = () => {
   const [pet, setPet] = useState(null);
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(true);
-  const { id: petId } = useParams(); // Get the pet ID from the URL params, assuming route is /pet/:id
+  const { petId } = useParams(); // Get the pet ID from the URL params
   const baseURL = 'https://findmypet-df0a76e6b00e.herokuapp.com/';
   const navigate = useNavigate();
 
@@ -23,8 +22,6 @@ const PetProfile = () => {
       } catch (err) {
         console.error(err);
         setError('Failed to fetch pet details');
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -36,21 +33,21 @@ const PetProfile = () => {
     e.target.alt = 'Image not available'; // Default alt text
   };
 
-  if (loading) {
-    return (
-      <div className="container mt-5 text-center">
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    );
-  }
-
   if (error) {
     return (
       <div className="container mt-5">
         <div className="alert alert-danger">
           {error}
+        </div>
+      </div>
+    );
+  }
+
+  if (!pet) {
+    return (
+      <div className="container mt-5 text-center">
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
         </div>
       </div>
     );
