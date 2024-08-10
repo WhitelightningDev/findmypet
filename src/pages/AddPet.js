@@ -73,7 +73,7 @@ const AddPet = () => {
       formData.append('name', newPet.name);
       formData.append('breed', newPet.breed);
       formData.append('age', newPet.age);
-      formData.append('Pet type', newPet.type);
+      formData.append('type', newPet.type);
       formData.append('tagType', newPet.tagType);
 
       // Add the placeholder image if no photo is provided
@@ -266,7 +266,7 @@ const AddPet = () => {
                     <h5 className="card-title">{pet.name}</h5>
                     <p className="card-text">Breed: {pet.breed}</p>
                     <p className="card-text">Age: {pet.age} years</p>
-                    <p className="card-text">Type: {pet.type}</p>
+                    <p className="card-text">Pet Type: {pet.type}</p>
                     <p className="card-text">Tag: {pet.tagType}</p>
                     {pet.photo ? (
                       <img
