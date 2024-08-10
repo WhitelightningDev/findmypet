@@ -63,20 +63,13 @@ const PetProfile = () => {
           <p className="card-text"><strong>Type:</strong> {pet.type}</p>
           <p className="card-text"><strong>Tag Type:</strong> {pet.tagType}</p>
           <div className="text-center">
-            {pet.photo ? (
-              <img
-                src={`${baseURL}uploads/${pet.photo}`}
-                alt={pet.name}
-                onError={handleImageError}
-                className="img-fluid"
-              />
-            ) : (
-              <img
-                src={PlaceholderImage} // Display the placeholder image if no photo exists
-                alt={pet.name}
-                className="img-fluid"
-              />
-            )}
+            <img
+              src={pet.photo ? `${baseURL}uploads/${pet.photo}` : PlaceholderImage}
+              alt={pet.name}
+              onError={handleImageError}
+              className="img-fluid"
+              style={{ maxWidth: '100%', height: 'auto' }}
+            />
           </div>
           <button className="btn btn-primary mt-3" onClick={() => navigate(-1)}>Back</button>
         </div>
