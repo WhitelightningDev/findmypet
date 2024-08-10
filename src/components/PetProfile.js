@@ -60,22 +60,25 @@ const PetProfile = () => {
   return (
     <div className="container mt-5">
       <div className="card shadow-sm">
+        <img
+          src={pet.photo || PlaceholderImage}
+          alt={pet.name}
+          className="card-img-top"
+          style={{ height: '300px', objectFit: 'cover' }}
+          onError={handleImageError}
+        />
         <div className="card-body">
-          <h2 className="card-title">{pet.name}</h2>
-          <p className="card-text"><strong>Breed:</strong> {pet.breed}</p>
-          <p className="card-text"><strong>Age:</strong> {pet.age} years</p>
-          <p className="card-text"><strong>Type:</strong> {pet.type}</p>
-          <p className="card-text"><strong>Tag Type:</strong> {pet.tagType}</p>
-          <div className="text-center">
-            <img
-              src={pet.photo ? `${baseURL}uploads/${pet.photo}` : PlaceholderImage}
-              alt={pet.name}
-              onError={handleImageError}
-              className="img-fluid"
-              style={{ maxWidth: '100%', height: 'auto' }}
-            />
-          </div>
-          <button className="btn btn-primary mt-3" onClick={() => navigate(-1)}>Back</button>
+          <h5 className="card-title">{pet.name}</h5>
+          <p className="card-text">Breed: {pet.breed}</p>
+          <p className="card-text">Age: {pet.age}</p>
+          <p className="card-text">Type: {pet.type}</p>
+          <p className="card-text">Tag Type: {pet.tagType}</p>
+          <button
+            className="btn btn-secondary"
+            onClick={() => navigate(-1)} // Navigate back to the previous page
+          >
+            Back
+          </button>
         </div>
       </div>
     </div>
