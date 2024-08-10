@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaTrash, FaSpinner, FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import Tagone from '../assets/dogtag1-removebg-preview.png';
 import Tagtwo from '../assets/dogtag2-removebg-preview.png';
-import PlaceholderImage from '../assets/pets.png'; // Import your placeholder image
+import PlaceholderImage from '../assets/pets.png';
 
 const dogBreeds = [
-  'Mixed','Unknown',
-  'Boxer', 'Schnauzer', 'Cocker Spaniel', 'Golden Retriever', 'Pug',
+  'Mixed', 'Unknown', 'Boxer', 'Schnauzer', 'Cocker Spaniel', 'Golden Retriever', 'Pug',
   'Shih Tzu', 'Bull Terrier', 'Great Dane', 'Husky', 'French Bulldog',
   'Labrador Retriever', 'German Shepherd', 'Staffordshire Bull Terrier',
   'Beagle', 'Yorkshire Terrier', 'Dachshund', 'Border Collie', 'Poodle',
@@ -17,17 +16,16 @@ const dogBreeds = [
 ];
 
 const catBreeds = [
-  'Mixed','Unknown','Tabby Cat','Bombay','Chantilly-Tiffany',
+  'Mixed', 'Unknown', 'Tabby Cat', 'Bombay', 'Chantilly-Tiffany',
   'Persian', 'Maine Coon', 'Siamese', 'Bengal', 'British Shorthair', 'Sphynx',
   'Ragdoll', 'Scottish Fold', 'Russian Blue', 'Siberian', 'Abyssinian',
   'Norwegian Forest Cat', 'Devon Rex', 'Cornish Rex', 'Himalayan', 'Birman', 'Manx',
   'Savannah', 'Oriental Shorthair', 'Turkish Angora', 'Egyptian Mau', 'American Shorthair',
-  'Munchkin', 'Selkirk Rex', 'Chartreux', 'Japanese Bobtail', 'Somali', 'Tonkinese', 'Singapura','Other'
+  'Munchkin', 'Selkirk Rex', 'Chartreux', 'Japanese Bobtail', 'Somali', 'Tonkinese', 'Singapura', 'Other'
 ];
 
 const horseBreeds = [
-  'Mixed','Unknown',
-  'Thoroughbred', 'Arabian', 'Warmblood', 'Saddlebred', 'Boerperd', 'Percheron',
+  'Mixed', 'Unknown', 'Thoroughbred', 'Arabian', 'Warmblood', 'Saddlebred', 'Boerperd', 'Percheron',
   'Clydesdale', 'Haflinger', 'Appaloosa', 'Shire', 'Dutch Warmblood', 'Hanoverian',
   'Irish Draught', 'Australian Stock Horse', 'South African Boerperd', 'Zebra (for conservation and tourism purposes)',
   'Pony of the Americas', 'Mongolian Horse', 'Paint Horse', 'Cleveland Bay'
@@ -96,6 +94,7 @@ const AddPet = () => {
       setSuccess('Pet added successfully!');
       setError('');
 
+      // Fetch updated pet list
       const response = await axios.get(`${baseURL}api/pet`, {
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -110,7 +109,7 @@ const AddPet = () => {
   };
 
   const handleImageError = (e) => {
-    e.target.src = PlaceholderImage; // Use the placeholder image if the original image fails to load
+    e.target.src = PlaceholderImage; // Fallback image
     e.target.alt = 'Image not available'; // Default alt text
   };
 
@@ -180,7 +179,7 @@ const AddPet = () => {
                 className="form-control"
                 value={newPet.breed}
                 onChange={(e) => setNewPet({ ...newPet, breed: e.target.value })}
-                disabled={!newPet.type} // Disable breed dropdown if no pet type is selected
+                disabled={!newPet.type}
               >
                 <option value="">Select Breed</option>
                 {breeds.map(breed => (
@@ -242,12 +241,13 @@ const AddPet = () => {
               <input
                 type="file"
                 className="form-control"
+                accept="image/*"
                 onChange={(e) => setNewPet({ ...newPet, photo: e.target.files[0] })}
               />
             </div>
             <button
               type="button"
-              className="btn btn-primary w-100"
+              className="btn btn-primary"
               onClick={handleAddPet}
               disabled={loading}
             >
@@ -257,35 +257,31 @@ const AddPet = () => {
         </div>
       </div>
 
-      <h3 className="text-center mb-4">Your Pets</h3>
+      <h3 className="text-center mb-4">Existing Pets</h3>
       <div className="row">
-        {pets.map((pet) => (
-          <div className="col-md-4 mb-4" key={pet._id}>
-            <div className="card shadow-sm">
+        {pets.map(pet => (
+          <div key={pet._id} className="col-md-4 mb-4">
+            <div className="card">
               <img
-                src={`${baseURL}uploads/${pet.photo}`}
+                src={pet.photo || PlaceholderImage}
                 alt={pet.name}
                 className="card-img-top"
                 style={{ height: '200px', objectFit: 'cover' }}
-                onError={handleImageError} // Call handleImageError if image fails to load
+                onError={handleImageError}
               />
               <div className="card-body">
                 <h5 className="card-title">{pet.name}</h5>
                 <p className="card-text">Breed: {pet.breed}</p>
                 <p className="card-text">Age: {pet.age}</p>
                 <p className="card-text">Type: {pet.type}</p>
-                <p className="card-text">Tag: {pet.tagType}</p>
-                <div className="d-flex justify-content-between">
-                  <Link to={`/pet/${pet._id}`} className="btn btn-primary btn-sm">
-                    View Details
-                  </Link>
-                  <button
-                    className="btn btn-danger btn-sm"
-                    onClick={() => deletePet(pet._id)}
-                  >
-                    <FaTrash />
-                  </button>
-                </div>
+                <p className="card-text">Tag Type: {pet.tagType}</p>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => deletePet(pet._id)}
+                >
+                  <FaTrash className="me-2" />
+                  Delete
+                </button>
               </div>
             </div>
           </div>
