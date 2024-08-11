@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDog, faCreditCard, faQrcode } from '@fortawesome/free-solid-svg-icons';
 import Info from '../assets/istockphoto-471388365-612x612-removebg-preview.png';
+import PetSafety from '../assets/wired-outline-1193-pets.svg';
 
 const Home = ({ isAuthenticated, isSignedUp }) => {
   const navigate = useNavigate();
@@ -52,8 +53,6 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
         <hr></hr>
       </section>
 
-     
-
       <div className="container marketing">
         {/* Three columns of text below the carousel */}
         <div className="row">
@@ -65,12 +64,12 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
           <div className="col-lg-4 text-center">
             <FontAwesomeIcon icon={faCreditCard} className="mb-3" size="4x" color="#6c757d" />
             <h2 className="fw-normal">Subscribe</h2>
-            <p>Once you have signed up, subscribe with our secure payment gateways and voilia, you are ready to recive your custom QR code.</p>
+            <p>Once you have signed up, subscribe with our secure payment gateways and voila, you are ready to receive your custom QR code.</p>
           </div>
           <div className="col-lg-4 text-center">
             <FontAwesomeIcon icon={faQrcode} className="mb-3" size="4x" color="#6c757d" />
             <h2 className="fw-normal">QR Code</h2>
-            <p>Once your subscription is verified either send us a email with the proof of payment, and we will send you your QR code with the relevant tag you have selected when creating your pet profile/s</p>
+            <p>Once your subscription is verified either send us an email with the proof of payment, and we will send you your QR code with the relevant tag you have selected when creating your pet profile/s</p>
           </div>
         </div>
 
@@ -80,25 +79,17 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
         <div className="row featurette">
           <div className="col-md-6">
             <h2 className="featurette-heading fw-normal lh-1">
-            Enhanced Pet Safety
+              Enhanced Pet Safety
             </h2>
             <p className="lead">With detailed pet profiles, including images, breeds, and unique tags, "Find My Pet" significantly increases the chances of quickly locating lost pets. The platform provides peace of mind, knowing that your pet's information is easily accessible and shareable in case of emergencies.</p>
           </div>
           <div className="col-md-5">
-            <svg
-              className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-              width="500"
-              height="500"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#e9ecef" />
-              <text x="50%" y="50%" fill="#6c757d" dy=".3em">500x500</text>
-            </svg>
+            <lord-icon
+              src="https://cdn.lordicon.com/senvigdu.json"
+              trigger="hover"
+              colors="primary:#1663c7,secondary:#121331"
+              style={{ width: '250px', height: '250px' }}
+            ></lord-icon>
           </div>
         </div>
 
@@ -107,25 +98,17 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
         <div className="row featurette">
           <div className="col-md-7 order-md-2">
             <h2 className="featurette-heading fw-normal lh-1">
-            Convenient Pet Management
+              Convenient Pet Management
             </h2>
             <p className="lead">"Find My Pet" offers a centralized platform where users can manage all their pet's important details in one place. From vaccination records to identifying features, everything is organized, making it easier to keep track of your pet's needs.</p>
           </div>
           <div className="col-md-5 order-md-1">
-            <svg
-              className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-              width="500"
-              height="500"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#e9ecef" />
-              <text x="50%" y="50%" fill="#6c757d" dy=".3em">500x500</text>
-            </svg>
+            <lord-icon
+              src="https://cdn.lordicon.com/cwqthjzg.json"
+              trigger="hover"
+              colors="primary:#1663c7,secondary:#121331"
+              style={{ width: '250px', height: '250px' }}>
+            </lord-icon>
           </div>
         </div>
 
@@ -134,25 +117,17 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
         <div className="row featurette">
           <div className="col-md-7">
             <h2 className="featurette-heading fw-normal lh-1">
-            Exclusive Features and Support
+              Exclusive Features and Support
             </h2>
             <p className="lead">By joining "Find My Pet," users gain access to premium features such as QR code identification, secure payment options for additional services, and a supportive community of fellow pet owners. These tools and resources help ensure your pet's safety and well-being.</p>
           </div>
           <div className="col-md-5">
-            <svg
-              className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-              width="500"
-              height="500"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#e9ecef" />
-              <text x="50%" y="50%" fill="#6c757d" dy=".3em">500x500</text>
-            </svg>
+            <lord-icon
+              src="https://cdn.lordicon.com/wzrwaorf.json"
+              trigger="hover"
+              colors="primary:#121331,secondary:#1663c7"
+              style={{width:'250px',height:'250px'}}>
+            </lord-icon>
           </div>
         </div>
 
