@@ -55,7 +55,7 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
 
       <div className="container marketing">
         {/* Three columns of text below the carousel */}
-        <div className="row">
+        <div className="row shadow-lg p-3 rounded-4">
           <div className="col-lg-4 text-center">
             <FontAwesomeIcon icon={faDog} className="mb-3" size="4x" color="#6c757d" />
             <h2 className="fw-normal">Add your pet</h2>
@@ -76,7 +76,7 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
         {/* START THE FEATURETTES */}
         <hr className="featurette-divider" />
 
-        <div className="row featurette">
+        <div className="row featurette shadow-lg p-3 rounded-4">
           <div className="col-md-6">
             <h2 className="featurette-heading fw-normal lh-1">
               Enhanced Pet Safety
@@ -95,7 +95,7 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
 
         <hr className="featurette-divider" />
 
-        <div className="row featurette">
+        <div className="row featurette shadow-lg p-3 rounded-4">
           <div className="col-md-7 order-md-2">
             <h2 className="featurette-heading fw-normal lh-1">
               Convenient Pet Management
@@ -114,7 +114,7 @@ const Home = ({ isAuthenticated, isSignedUp }) => {
 
         <hr className="featurette-divider" />
 
-        <div className="row featurette">
+        <div className="row featurette shadow-lg p-3 rounded-4">
           <div className="col-md-7">
             <h2 className="featurette-heading fw-normal lh-1">
               Exclusive Features and Support
