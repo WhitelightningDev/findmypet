@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
-import backgroundImage from '../assets/undraw_my_password_re_ydq7.svg'; // Import your background image
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import backgroundImage from '../assets/undraw_my_password_re_ydq7.svg';
 
 const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const location = useLocation(); // Get the state passed from navigate
+
+  useEffect(() => {
+    if (location.state?.fromSignup) {
+      toast.success('A confirmation email has been sent to your inbox.');
+    }
+  }, [location.state]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +36,6 @@ const Login = ({ setIsAuthenticated }) => {
 
   return (
     <div className="container-fluid d-flex flex-column justify-content-center align-items-center" style={{ height: '100vh', padding: 0, position: 'relative' }}>
-      {/* Background Image */}
       <img 
         src={backgroundImage} 
         alt="Background" 
@@ -72,6 +80,7 @@ const Login = ({ setIsAuthenticated }) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
       <style jsx>{`
         .background-image {
           position: absolute;

@@ -36,17 +36,17 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (password !== confirmPassword) {
       toast.error('Passwords do not match');
       return;
     }
-
+  
     if (!termsAccepted) {
       toast.error('You must accept the terms of use');
       return;
     }
-
+  
     try {
       const response = await axios.post(`${baseURL}api/auth/register`, {
         name,
@@ -59,20 +59,19 @@ const SignUp = () => {
         email,
         password
       });
-
-      // Check if the response is successful
+  
       if (response.status === 201) { // Use 201 for successful creation
         toast.success('Registration successful! Please check your email for a confirmation message.');
-        navigate('/login'); // Redirect to the login page or another page
+        navigate('/login', { state: { fromSignup: true } }); // Pass state
       } else {
         toast.error('Registration failed: ' + response.data.error);
       }
     } catch (error) {
-      // Improved error handling
       const errorMessage = error.response?.data?.error || 'An error occurred';
       toast.error('Registration failed: ' + errorMessage);
     }
   };
+  
 
   return (
     <div className="container d-flex justify-content-center align-items-center min-vh-100 mt-4 mb-4">
