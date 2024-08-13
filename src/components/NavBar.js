@@ -22,7 +22,7 @@ const NavBar = ({ isAuthenticated, handleLogout }) => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
       <div className="container">
         <Link className="navbar-brand fw-bold" to="/">
-          <i className="fas fa-paw"></i> Find My Pet
+          <i className="fas fa-paw"></i> Found Your Pet
         </Link>
         <button
           className="navbar-toggler"
