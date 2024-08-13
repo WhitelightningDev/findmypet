@@ -61,14 +61,16 @@ const SignUp = () => {
       });
 
       // Check if the response is successful
-      if (response.status === 200) {
+      if (response.status === 201) { // Use 201 for successful creation
         toast.success('Registration successful! Please check your email for a confirmation message.');
         navigate('/login'); // Redirect to the login page or another page
       } else {
         toast.error('Registration failed: ' + response.data.error);
       }
     } catch (error) {
-      toast.error('Registration failed: ' + (error.response?.data?.error || 'An error occurred'));
+      // Improved error handling
+      const errorMessage = error.response?.data?.error || 'An error occurred';
+      toast.error('Registration failed: ' + errorMessage);
     }
   };
 
