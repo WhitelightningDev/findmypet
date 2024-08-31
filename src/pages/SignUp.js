@@ -1,11 +1,18 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { FaUser, FaHome, FaEnvelope, FaLock, FaCheckCircle } from 'react-icons/fa';
+import { TextField, Button, Checkbox, FormControlLabel, Card, Container, Typography, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
+import { Pets as PetsIcon, Home as HomeIcon, Email as EmailIcon, Lock as LockIcon, CheckCircle as CheckCircleIcon } from '@mui/icons-material';
+import { styled } from '@mui/material/styles';
+
+const GreenCheckbox = styled(Checkbox)(({ theme }) => ({
+  color: theme.palette.text.secondary,
+  '&.Mui-checked': {
+    color: 'green',
+  },
+}));
 
 const provinces = [
   'Eastern Cape',
@@ -36,17 +43,17 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (password !== confirmPassword) {
       toast.error('Passwords do not match');
       return;
     }
-  
+
     if (!termsAccepted) {
       toast.error('You must accept the terms of use');
       return;
     }
-  
+
     try {
       const response = await axios.post(`${baseURL}api/auth/register`, {
         name,
@@ -59,7 +66,7 @@ const SignUp = () => {
         email,
         password
       });
-  
+
       if (response.status === 201) { // Use 201 for successful creation
         toast.success('Registration successful! Please check your email for a confirmation message.');
         navigate('/login', { state: { fromSignup: true } }); // Pass state
@@ -71,174 +78,152 @@ const SignUp = () => {
       toast.error('Registration failed: ' + errorMessage);
     }
   };
-  
 
   return (
-    <div className="container d-flex justify-content-center align-items-center min-vh-100 mt-4 mb-4">
-      <div className="col-12 col-md-8 col-lg-10">
-        <div>
-          <h2 className="text-center mb-4">Please fill in all your information below</h2>
-        </div>
-        <div className="card p-4 shadow-sm">
-          <h2 className="text-center mb-4">Sign Up</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label htmlFor="name" className="form-label">
-                <FaUser /> Name
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="surname" className="form-label">
-                <FaUser /> Surname
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="surname"
-                value={surname}
-                onChange={(e) => setSurname(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="street" className="form-label">
-                <FaHome /> Street Name
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="street"
-                value={street}
-                onChange={(e) => setStreet(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="number" className="form-label">
-                <FaHome /> Street Number
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="number"
-                value={number}
-                onChange={(e) => setNumber(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="suburb" className="form-label">
-                <FaHome /> Suburb
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="suburb"
-                value={suburb}
-                onChange={(e) => setSuburb(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="country" className="form-label">
-                <FaHome /> Country
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="country"
-                value={country}
-                onChange={(e) => setCountry(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="province" className="form-label">
-                <FaHome /> Province
-              </label>
-              <select
-                className="form-select"
-                id="province"
-                value={province}
-                onChange={(e) => setProvince(e.target.value)}
-                required
-              >
-                <option value="">Select Province</option>
-                {provinces.map((prov, index) => (
-                  <option key={index} value={prov}>{prov}</option>
-                ))}
-              </select>
-            </div>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                <FaEnvelope /> Email
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label">
-                <FaLock /> Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="confirmPassword" className="form-label">
-                <FaLock /> Confirm Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="confirmPassword"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                required
-              />
-            </div>
-            <div className="mb-3 form-check">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="terms"
-                checked={termsAccepted}
-                onChange={(e) => setTermsAccepted(e.target.checked)}
-                required
-              />
-              <label className="form-check-label" htmlFor="terms">
-                <FaCheckCircle /> I agree to the <Link to="/terms-of-use">terms of use</Link>
-              </label>
-            </div>
-            <button type="submit" className="btn btn-primary w-100">Sign Up</button>
-          </form>
-          <div className="text-center mt-3">
-            <p className="mb-1">Already have an account? <Link to="/login">Login</Link></p>
-            <Link to="/" className="btn btn-secondary mt-3">Back Home</Link>
-          </div>
-        </div>
-      </div>
+    <Container maxWidth="sm" className="mt-4 mb-4">
+      <Card sx={{ padding: 4, boxShadow: 3 }}>
+        <Typography variant="h4" align="center" gutterBottom>
+          Sign Up
+        </Typography>
+        <form onSubmit={handleSubmit}>
+          <TextField
+            label="Name"
+            fullWidth
+            margin="normal"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            InputProps={{
+              startAdornment: <PetsIcon />
+            }}
+            required
+          />
+          <TextField
+            label="Surname"
+            fullWidth
+            margin="normal"
+            value={surname}
+            onChange={(e) => setSurname(e.target.value)}
+            InputProps={{
+              startAdornment: <PetsIcon />
+            }}
+            required
+          />
+          <TextField
+            label="Street Name"
+            fullWidth
+            margin="normal"
+            value={street}
+            onChange={(e) => setStreet(e.target.value)}
+            InputProps={{
+              startAdornment: <HomeIcon />
+            }}
+            required
+          />
+          <TextField
+            label="Street Number"
+            fullWidth
+            margin="normal"
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+            InputProps={{
+              startAdornment: <HomeIcon />
+            }}
+            required
+          />
+          <TextField
+            label="Suburb"
+            fullWidth
+            margin="normal"
+            value={suburb}
+            onChange={(e) => setSuburb(e.target.value)}
+            InputProps={{
+              startAdornment: <HomeIcon />
+            }}
+            required
+          />
+          <TextField
+            label="Country"
+            fullWidth
+            margin="normal"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            InputProps={{
+              startAdornment: <HomeIcon />
+            }}
+            required
+          />
+          <FormControl fullWidth margin="normal">
+            <InputLabel id="province-label">Province</InputLabel>
+            <Select
+              labelId="province-label"
+              id="province"
+              value={province}
+              onChange={(e) => setProvince(e.target.value)}
+              label="Province"
+              required
+            >
+              <MenuItem value="">
+                <em>Select Province</em>
+              </MenuItem>
+              {provinces.map((prov, index) => (
+                <MenuItem key={index} value={prov}>{prov}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <TextField
+            label="Email"
+            type="email"
+            fullWidth
+            margin="normal"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            InputProps={{
+              startAdornment: <EmailIcon />
+            }}
+            required
+          />
+          <TextField
+            label="Password"
+            type="password"
+            fullWidth
+            margin="normal"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            InputProps={{
+              startAdornment: <LockIcon />
+            }}
+            required
+          />
+          <TextField
+            label="Confirm Password"
+            type="password"
+            fullWidth
+            margin="normal"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            InputProps={{
+              startAdornment: <LockIcon />
+            }}
+            required
+          />
+          <FormControlLabel
+            control={<GreenCheckbox checked={termsAccepted} onChange={(e) => setTermsAccepted(e.target.checked)} required />}
+            label={<Typography><CheckCircleIcon /> I agree to the <Link to="/terms-of-use">terms of use</Link></Typography>}
+            sx={{ mt: 2 }}
+          />
+          <Button type="submit" variant="contained" fullWidth sx={{ mt: 3 }}>
+            Sign Up
+          </Button>
+        </form>
+        <Typography align="center" sx={{ mt: 3 }}>
+          Already have an account? <Link to="/login">Login</Link>
+        </Typography>
+        <Button component={Link} to="/" variant="outlined" fullWidth sx={{ mt: 2 }}>
+          Back Home
+        </Button>
+      </Card>
       <ToastContainer />
-    </div>
+    </Container>
   );
 };
 
