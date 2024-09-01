@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/findmypet/static/css/main.0af7084e.css",
-    "main.js": "/findmypet/static/js/main.7c4c7c9e.js",
-    "static/js/453.76942838.chunk.js": "/findmypet/static/js/453.76942838.chunk.js",
+    "main.css": "/findmypet/static/css/main.08db10b6.css",
+    "main.js": "/findmypet/static/js/main.89d7796c.js",
+    "static/js/453.8b9b70bd.chunk.js": "/findmypet/static/js/453.8b9b70bd.chunk.js",
     "static/media/fa-solid-900.ttf": "/findmypet/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
     "static/media/dogtag2-removebg-preview.png": "/findmypet/static/media/dogtag2-removebg-preview.c42e7cef0794afa5a396.png",
     "static/media/istockphoto-471388365-612x612-removebg-preview.png": "/findmypet/static/media/istockphoto-471388365-612x612-removebg-preview.98402533b20de2acf178.png",
@@ -16,14 +16,13 @@
     "static/media/fa-v4compatibility.ttf": "/findmypet/static/media/fa-v4compatibility.0f6cb412603527bda691.ttf",
     "static/media/undraw_my_password_re_ydq7.svg": "/findmypet/static/media/undraw_my_password_re_ydq7.c13195489e8e86e0f22ee2b234d3261a.svg",
     "static/media/fa-v4compatibility.woff2": "/findmypet/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
-    "static/media/wired-outline-1193-pets.svg": "/findmypet/static/media/wired-outline-1193-pets.bf67c9c9ae131409e7194d915271dca9.svg",
     "index.html": "/findmypet/index.html",
-    "main.0af7084e.css.map": "/findmypet/static/css/main.0af7084e.css.map",
-    "main.7c4c7c9e.js.map": "/findmypet/static/js/main.7c4c7c9e.js.map",
-    "453.76942838.chunk.js.map": "/findmypet/static/js/453.76942838.chunk.js.map"
+    "main.08db10b6.css.map": "/findmypet/static/css/main.08db10b6.css.map",
+    "main.89d7796c.js.map": "/findmypet/static/js/main.89d7796c.js.map",
+    "453.8b9b70bd.chunk.js.map": "/findmypet/static/js/453.8b9b70bd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0af7084e.css",
-    "static/js/main.7c4c7c9e.js"
+    "static/css/main.08db10b6.css",
+    "static/js/main.89d7796c.js"
   ]
 }
